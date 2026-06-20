@@ -13,4 +13,4 @@ id,tipo,area,titolo,stato,priorita,size
 014,feature,bi,Motore di analisi (competenza + preferenza + crosscut + profili),todo,P1,L
 015,feature,dashboard,Report visuale (Sintesi + Approfondita + export PDF),todo,P1,L
 016,feature,frontend,Landing page ClinicalScenario,todo,P2,M
-017,feature,export,Export Excel arricchito (5 fogli BI + risposte con profilo),todo,P1,S
+017,feature,export,Export Excel arricchito (5 fogli BI + risposte con profilo),done,P1,S
