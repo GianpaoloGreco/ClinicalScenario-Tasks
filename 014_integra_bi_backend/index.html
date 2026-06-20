@@ -7,328 +7,41 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
-    body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
-    .nav-link { transition: all 0.2s; }
-    .nav-link.active { color: #047857; background: #ecfdf5; font-weight: 700; }
+    body { font-family: 'Inter', sans-serif; }
   </style>
 </head>
 <body class="min-h-screen bg-white text-gray-900">
+  <div class="max-w-2xl mx-auto px-6 py-12">
 
-  <!-- ===== BARRA NAVIGAZIONE STICKY ===== -->
-  <div class="sticky top-0 z-50 bg-white border-b-2 border-gray-200 shadow-sm">
-    <div class="max-w-5xl mx-auto flex">
-      <!-- Blocco TASK -->
-      <div class="flex-1 border-r-2 border-gray-200">
-        <div class="px-4 py-1.5 text-[10px] font-bold text-gray-400 uppercase tracking-widest bg-gray-50 border-b border-gray-100">Documentazione Task</div>
-        <div class="flex divide-x divide-gray-100">
-          <a href="#panoramica" class="nav-link flex-1 px-3 py-2.5 text-xs font-semibold text-gray-500 text-center hover:bg-gray-50" data-section="panoramica">Panoramica</a>
-          <a href="#flusso1" class="nav-link flex-1 px-3 py-2.5 text-xs font-semibold text-gray-500 text-center hover:bg-gray-50" data-section="flusso1">Flusso 1</a>
-          <a href="#flusso2" class="nav-link flex-1 px-3 py-2.5 text-xs font-semibold text-gray-500 text-center hover:bg-gray-50" data-section="flusso2">Flusso 2</a>
-          <a href="#flusso3" class="nav-link flex-1 px-3 py-2.5 text-xs font-semibold text-gray-500 text-center hover:bg-gray-50" data-section="flusso3">Flusso 3</a>
-        </div>
-      </div>
-      <!-- Nessun mockup per questo task -->
-      <div class="w-56 flex-shrink-0 bg-gray-100">
-        <div class="px-4 py-1.5 text-[10px] font-bold text-gray-400 uppercase tracking-widest border-b border-gray-200">Mockup live</div>
-        <div class="flex items-center justify-center h-10">
-          <span class="text-xs text-gray-400 italic">Nessun mockup per questo task</span>
-        </div>
-      </div>
+    <div class="mb-8">
+      <span class="px-2.5 py-1 rounded bg-emerald-100 text-emerald-700 text-xs font-bold">TASK 014</span>
+      <h1 class="text-2xl font-extrabold tracking-tight mt-3 mb-1">Motore di analisi</h1>
+      <p class="text-gray-400 text-sm">P1 · Size L · Feature</p>
     </div>
-  </div>
 
-  <div class="max-w-3xl mx-auto px-6 py-12">
+    <p class="text-[15px] text-gray-700 leading-relaxed mb-6">Dopo che i clinici rispondono, il sistema analizza le risposte su tre dimensioni: competenza (quanto sanno), preferenza (cosa scelgono), crosscut (evidenza vs comportamento). Produce 2-3 profili decisionali. Gli assi vengono dal catalogo del PDF.</p>
 
-    <!-- ============================================================ -->
-    <!-- PANORAMICA                                                    -->
-    <!-- ============================================================ -->
-    <section id="panoramica" class="scroll-mt-24">
+    <div class="bg-emerald-50 border border-emerald-200 rounded-lg p-4 mb-8">
+      <p class="text-sm text-gray-800">Implementare il motore che trasforma le risposte grezze in analisi di competenza, preferenza e crosscut con clustering in profili.</p>
+    </div>
 
-      <!-- Header -->
-      <div class="border-b border-gray-200 pb-8 mb-10">
-        <div class="flex items-center gap-2 flex-wrap">
-          <span class="px-2.5 py-1 rounded bg-emerald-100 text-emerald-700 text-xs font-bold">TASK 014</span>
-          <span class="px-2.5 py-1 rounded bg-red-100 text-red-700 text-xs font-bold">P1</span>
-          <span class="px-2.5 py-1 rounded bg-blue-100 text-blue-700 text-xs font-bold">Size L</span>
-          <span class="px-2.5 py-1 rounded bg-purple-100 text-purple-700 text-xs font-bold">Feature</span>
-        </div>
-        <h1 class="text-3xl font-extrabold tracking-tight mt-3 mb-1">Motore di analisi</h1>
-        <p class="text-gray-400 text-sm">Dipende da: Task 011, Task 012</p>
-      </div>
+    <h2 class="text-sm font-bold text-gray-400 uppercase tracking-wider mb-3">Cosa fare</h2>
+    <ol class="space-y-2 text-sm text-gray-700 mb-8 list-decimal list-inside">
+      <li>Elaborare analisi di competenza: % corrette per domanda, difficolta, mappa distrattori</li>
+      <li>Elaborare analisi di preferenza: posizione su ogni asse, clustering in 2-3 profili</li>
+      <li>Elaborare crosscut: ogni domanda in uno dei 4 quadranti (evidenza x comportamento)</li>
+      <li>Profili individuali per ogni partecipante (necessari per il clustering)</li>
+      <li>Risultati disponibili per dashboard e export</li>
+    </ol>
 
-      <!-- Descrizione -->
-      <div class="mb-12">
-        <h2 class="text-xl font-extrabold mb-4">Descrizione</h2>
-        <div class="text-[15px] text-gray-700 leading-relaxed space-y-4">
-          <p>Quando i clinici rispondono a un quiz, le loro risposte devono essere elaborate per produrre un'analisi significativa. Il motore di analisi prende le domande, le risposte e il catalogo dei documenti di riferimento (prodotto dalla normalizzazione del Task 012), e produce un'analisi completa in tre dimensioni.</p>
-          <p>La prima dimensione e la <strong>competenza</strong>: quanto il gruppo conosce le linee guida. La seconda e la <strong>preferenza</strong>: dove il gruppo non e allineato sulle scelte cliniche. La terza e il <strong>crosscut</strong>: una mappa che incrocia la forza dell'evidenza scientifica con il comportamento reale del gruppo - utile per distinguere dove c'e un vero gap formativo da dove c'e semplicemente incertezza clinica legittima.</p>
-          <p>Il motore produce anche i <strong>profili decisionali</strong>: 2-3 gruppi di clinici che tendono a fare scelte simili. Per esempio, in un contesto di terapia del dolore potresti avere il "profilo monoterapia" e il "profilo switch precoce". Non e un giudizio sulla qualita delle scelte - e una mappa di come diversi clinici affrontano le stesse decisioni. I profili si creano partendo dal posizionamento individuale di ogni partecipante sugli assi estratti dal PDF: <strong>senza i profili individuali non si possono creare i raggruppamenti</strong>.</p>
-        </div>
-      </div>
-
-      <!-- Obiettivo -->
-      <div class="mb-12">
-        <h2 class="text-xl font-extrabold mb-4">Obiettivo</h2>
-        <div class="bg-emerald-50 border border-emerald-200 rounded-lg p-5">
-          <p class="text-[15px] text-gray-800 leading-relaxed">Il sistema elabora le risposte al quiz e produce un dataset di analisi completo che alimenta sia il report visuale interattivo che l'export Excel.</p>
-        </div>
-      </div>
-
-      <!-- Flusso utente (overview) -->
-      <div class="mb-12">
-        <h2 class="text-xl font-extrabold mb-4">Flusso utente</h2>
-        <p class="text-sm text-gray-500 mb-5">Questo e il percorso dall'inizio alla fine. Clicca su ogni step per andare alla sezione con i dettagli.</p>
-        <div class="space-y-3">
-          <a href="#flusso1" class="block p-5 border-2 border-gray-200 rounded-lg hover:border-emerald-400 transition-all group">
-            <div class="flex items-center gap-4">
-              <div class="w-10 h-10 rounded-full bg-amber-100 text-amber-700 font-bold text-sm flex items-center justify-center flex-shrink-0">1</div>
-              <div class="flex-1">
-                <h3 class="text-base font-bold text-gray-800 group-hover:text-emerald-700">Le risposte vengono raccolte</h3>
-                <p class="text-sm text-gray-500 mt-0.5">I clinici rispondono al quiz e le risposte vengono salvate con tutte le informazioni necessarie per l'analisi.</p>
-              </div>
-            </div>
-          </a>
-          <div class="flex justify-center"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-gray-300"><path d="m6 9 6 6 6-6"></path></svg></div>
-          <a href="#flusso2" class="block p-5 border-2 border-gray-200 rounded-lg hover:border-emerald-400 transition-all group">
-            <div class="flex items-center gap-4">
-              <div class="w-10 h-10 rounded-full bg-emerald-100 text-emerald-700 font-bold text-sm flex items-center justify-center flex-shrink-0">2</div>
-              <div class="flex-1">
-                <h3 class="text-base font-bold text-gray-800 group-hover:text-emerald-700">Il sistema analizza le risposte</h3>
-                <p class="text-sm text-gray-500 mt-0.5">Il motore elabora competenza, preferenze e profili decisionali in modo automatico.</p>
-              </div>
-            </div>
-          </a>
-          <div class="flex justify-center"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-gray-300"><path d="m6 9 6 6 6-6"></path></svg></div>
-          <a href="#flusso3" class="block p-5 border-2 border-gray-200 rounded-lg hover:border-emerald-400 transition-all group">
-            <div class="flex items-center gap-4">
-              <div class="w-10 h-10 rounded-full bg-emerald-100 text-emerald-700 font-bold text-sm flex items-center justify-center flex-shrink-0">3</div>
-              <div class="flex-1">
-                <h3 class="text-base font-bold text-gray-800 group-hover:text-emerald-700">I risultati sono disponibili</h3>
-                <p class="text-sm text-gray-500 mt-0.5">L'operatore puo visualizzare il report e scaricare gli export con i dati completi.</p>
-              </div>
-            </div>
-          </a>
-        </div>
-      </div>
-
-      <!-- Assumption -->
-      <div class="mb-12">
-        <h2 class="text-xl font-extrabold mb-4">Assumption</h2>
-        <ul class="space-y-3 text-[15px] text-gray-700 leading-relaxed">
-          <li>- L'analisi e automatica: appena ci sono risposte sufficienti, il report e disponibile senza azioni manuali da parte dell'operatore.</li>
-          <li>- I profili decisionali vengono generati automaticamente in 2 o 3 gruppi. Non sono categorie predefinite - emergono dai dati.</li>
-          <li>- L'analisi di competenza include: percentuale di risposte corrette per ogni domanda, un indice di difficolta, e una mappa dei distrattori (quale risposta sbagliata viene scelta piu spesso).</li>
-          <li>- L'analisi di preferenza include: la posizione media del gruppo su ogni asse di scelta, quanto le risposte sono disperse, e i profili che emergono dal raggruppamento.</li>
-          <li>- Il crosscut incrocia la forza dell'evidenza scientifica con il comportamento del gruppo per distinguere gap formativi da aree di incertezza clinica legittima.</li>
-          <li>- Con meno di 10 rispondenti i risultati sono indicativi, non statisticamente affidabili. Il sistema lo segnala chiaramente.</li>
-        </ul>
-      </div>
-
-    </section>
-
-    <!-- Separatore tra sezioni -->
-    <div class="border-t-4 border-emerald-200 my-16"></div>
-
-    <!-- ============================================================ -->
-    <!-- FLUSSO 1 - Raccolta risposte                                  -->
-    <!-- ============================================================ -->
-    <section id="flusso1" class="scroll-mt-24">
-
-      <div class="border-b border-gray-200 pb-6 mb-8">
-        <span class="text-xs font-bold text-amber-600 uppercase tracking-wider">Flusso 1</span>
-        <h1 class="text-2xl font-extrabold tracking-tight mt-1">Raccolta risposte</h1>
-        <p class="text-gray-500 mt-1">Cosa succede mentre i clinici rispondono al quiz.</p>
-      </div>
-
-      <!-- Cosa fare -->
-      <div class="mb-10">
-        <h2 class="text-sm font-bold text-gray-400 uppercase tracking-wider mb-4">Cosa deve fare lo sviluppatore</h2>
-        <ul class="space-y-3 text-sm text-gray-700">
-          <li class="flex items-start gap-2">
-            <span class="text-emerald-500 font-bold mt-0.5">1.</span>
-            <span>Ogni risposta deve essere salvata con: identificativo del rispondente, quale opzione ha scelto, se la risposta era corretta (per le domande di competenza), e quanto tempo ha impiegato.</span>
-          </li>
-          <li class="flex items-start gap-2">
-            <span class="text-emerald-500 font-bold mt-0.5">2.</span>
-            <span>Le risposte devono essere associate al quiz di appartenenza in modo che il motore di analisi possa recuperarle tutte insieme.</span>
-          </li>
-          <li class="flex items-start gap-2">
-            <span class="text-emerald-500 font-bold mt-0.5">3.</span>
-            <span>Il sistema deve funzionare durante tutta la fase di somministrazione del quiz, non solo al termine.</span>
-          </li>
-        </ul>
-      </div>
-
-      <!-- Condizione -->
-      <div class="mb-10">
-        <h2 class="text-sm font-bold text-gray-400 uppercase tracking-wider mb-4">Quando</h2>
-        <p class="text-sm text-gray-700">Durante la somministrazione del quiz, ogni volta che un clinico invia una risposta.</p>
-      </div>
-
-    </section>
-
-    <!-- Separatore -->
-    <div class="border-t-4 border-emerald-200 my-16"></div>
-
-    <!-- ============================================================ -->
-    <!-- FLUSSO 2 - Analisi                                            -->
-    <!-- ============================================================ -->
-    <section id="flusso2" class="scroll-mt-24">
-
-      <div class="border-b border-gray-200 pb-6 mb-8">
-        <span class="text-xs font-bold text-emerald-600 uppercase tracking-wider">Flusso 2</span>
-        <h1 class="text-2xl font-extrabold tracking-tight mt-1">Elaborazione dell'analisi</h1>
-        <p class="text-gray-500 mt-1">Come il motore trasforma le risposte grezze in un'analisi strutturata.</p>
-      </div>
-
-      <!-- Cosa fare -->
-      <div class="mb-10">
-        <h2 class="text-sm font-bold text-gray-400 uppercase tracking-wider mb-4">Cosa deve fare lo sviluppatore</h2>
-        <ul class="space-y-3 text-sm text-gray-700">
-          <li class="flex items-start gap-2">
-            <span class="text-emerald-500 font-bold mt-0.5">1.</span>
-            <span><strong>Analisi di competenza:</strong> calcola per ogni domanda la percentuale di risposte corrette, un indice di difficolta, e quale risposta sbagliata viene scelta piu spesso (mappa dei distrattori).</span>
-          </li>
-          <li class="flex items-start gap-2">
-            <span class="text-emerald-500 font-bold mt-0.5">2.</span>
-            <span><strong>Analisi di preferenza:</strong> per ogni asse di scelta, calcola il punteggio di ogni rispondente, raggruppa automaticamente i partecipanti in 2-3 profili decisionali, e calcola quanto ogni profilo ha adottato le entita cliniche proposte.</span>
-          </li>
-          <li class="flex items-start gap-2">
-            <span class="text-emerald-500 font-bold mt-0.5">3.</span>
-            <span><strong>Crosscut:</strong> posiziona ogni domanda in uno dei 4 quadranti che nascono dall'incrocio tra forza dell'evidenza e comportamento del gruppo.</span>
-          </li>
-        </ul>
-      </div>
-
-      <!-- I 4 quadranti -->
-      <div class="mb-10">
-        <h2 class="text-sm font-bold text-gray-400 uppercase tracking-wider mb-4">I 4 quadranti del crosscut</h2>
-        <div class="border border-gray-200 rounded-lg divide-y divide-gray-200">
-          <div class="flex items-start gap-3 p-4">
-            <span class="w-3 h-3 rounded-full bg-red-500 flex-shrink-0 mt-1"></span>
-            <div>
-              <p class="text-sm font-semibold text-gray-700">Evidenza forte + gruppo non allineato</p>
-              <p class="text-xs text-gray-400">Gap formativo chiaro: c'e una linea guida solida ma il gruppo non la segue.</p>
-            </div>
-          </div>
-          <div class="flex items-start gap-3 p-4">
-            <span class="w-3 h-3 rounded-full bg-amber-400 flex-shrink-0 mt-1"></span>
-            <div>
-              <p class="text-sm font-semibold text-gray-700">Evidenza debole + gruppo non allineato</p>
-              <p class="text-xs text-gray-400">Incertezza clinica legittima: mancanza di consenso nelle linee guida si riflette nelle scelte.</p>
-            </div>
-          </div>
-          <div class="flex items-start gap-3 p-4">
-            <span class="w-3 h-3 rounded-full bg-emerald-500 flex-shrink-0 mt-1"></span>
-            <div>
-              <p class="text-sm font-semibold text-gray-700">Evidenza forte + gruppo allineato</p>
-              <p class="text-xs text-gray-400">Punto di forza: il gruppo conosce e segue le linee guida.</p>
-            </div>
-          </div>
-          <div class="flex items-start gap-3 p-4">
-            <span class="w-3 h-3 rounded-full bg-gray-300 flex-shrink-0 mt-1"></span>
-            <div>
-              <p class="text-sm font-semibold text-gray-700">Evidenza debole + gruppo allineato</p>
-              <p class="text-xs text-gray-400">Pratica condivisa su terreno incerto: il gruppo converge ma le linee guida non sono definitive.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Condizione -->
-      <div class="mb-10">
-        <h2 class="text-sm font-bold text-gray-400 uppercase tracking-wider mb-4">Quando</h2>
-        <p class="text-sm text-gray-700">Quando l'operatore richiede il report. L'analisi viene elaborata in quel momento, non in anticipo.</p>
-      </div>
-
-    </section>
-
-    <!-- Separatore -->
-    <div class="border-t-4 border-emerald-200 my-16"></div>
-
-    <!-- ============================================================ -->
-    <!-- FLUSSO 3 - Risultati disponibili                              -->
-    <!-- ============================================================ -->
-    <section id="flusso3" class="scroll-mt-24">
-
-      <div class="border-b border-gray-200 pb-6 mb-8">
-        <span class="text-xs font-bold text-emerald-600 uppercase tracking-wider">Flusso 3</span>
-        <h1 class="text-2xl font-extrabold tracking-tight mt-1">Risultati disponibili</h1>
-        <p class="text-gray-500 mt-1">Come i risultati vengono resi accessibili al report visuale e all'export.</p>
-      </div>
-
-      <!-- Cosa fare -->
-      <div class="mb-10">
-        <h2 class="text-sm font-bold text-gray-400 uppercase tracking-wider mb-4">Cosa deve fare lo sviluppatore</h2>
-        <ul class="space-y-3 text-sm text-gray-700">
-          <li class="flex items-start gap-2">
-            <span class="text-emerald-500 font-bold mt-0.5">1.</span>
-            <span>Il dataset di analisi completo deve essere disponibile tramite un unico punto di accesso che il report visuale (Task 015) e l'export Excel (Task 017) possono interrogare.</span>
-          </li>
-          <li class="flex items-start gap-2">
-            <span class="text-emerald-500 font-bold mt-0.5">2.</span>
-            <span>I dati devono includere tutte e tre le dimensioni: competenza, preferenze con profili, e crosscut.</span>
-          </li>
-          <li class="flex items-start gap-2">
-            <span class="text-emerald-500 font-bold mt-0.5">3.</span>
-            <span>Con dati simulati di 30 rispondenti, il report completo deve essere leggibile e non mostrare errori o sezioni vuote.</span>
-          </li>
-        </ul>
-      </div>
-
-      <!-- Condizione -->
-      <div class="mb-10">
-        <h2 class="text-sm font-bold text-gray-400 uppercase tracking-wider mb-4">Quando</h2>
-        <p class="text-sm text-gray-700">Dopo che l'analisi e stata completata. I risultati restano disponibili fino a quando il quiz e attivo.</p>
-      </div>
-
-    </section>
-
-    <!-- Separatore -->
-    <div class="border-t-4 border-emerald-200 my-16"></div>
-
-    <!-- ============================================================ -->
-    <!-- CRITERI DI ACCETTAZIONE                                       -->
-    <!-- ============================================================ -->
-    <section class="mb-16">
-      <h2 class="text-xl font-extrabold mb-6">Criteri di accettazione</h2>
-      <ul class="space-y-3 text-[15px] text-gray-700 leading-relaxed">
-        <li>- Il motore produce un'analisi di competenza con percentuali corrette e mappa delle risposte sbagliate piu frequenti</li>
-        <li>- Il motore produce profili decisionali con 2-3 gruppi distinti</li>
-        <li>- Il crosscut posiziona ogni domanda in uno dei 4 quadranti</li>
-        <li>- I risultati alimentano sia il report visuale che l'export Excel</li>
-        <li>- Con dati simulati di 30 rispondenti il report e completo e leggibile</li>
-      </ul>
-    </section>
+    <h2 class="text-sm font-bold text-gray-400 uppercase tracking-wider mb-3">Criteri di accettazione</h2>
+    <ul class="space-y-1.5 text-sm text-gray-700">
+      <li class="flex items-start gap-2"><span class="text-emerald-500 mt-0.5">&#10003;</span> Analisi competenza completa con % e distrattori</li>
+      <li class="flex items-start gap-2"><span class="text-emerald-500 mt-0.5">&#10003;</span> Clustering produce 2-3 profili decisionali</li>
+      <li class="flex items-start gap-2"><span class="text-emerald-500 mt-0.5">&#10003;</span> Crosscut posiziona ogni domanda in 4 quadranti</li>
+      <li class="flex items-start gap-2"><span class="text-emerald-500 mt-0.5">&#10003;</span> Funziona con 30 rispondenti simulati</li>
+    </ul>
 
   </div>
-
-  <!-- ===== SCROLL SPY ===== -->
-  <script>
-    var sections = document.querySelectorAll('section[id]');
-    var navLinks = document.querySelectorAll('.nav-link');
-
-    function updateNav() {
-      var scrollY = window.scrollY + 120;
-      var current = 'panoramica';
-
-      sections.forEach(function(section) {
-        if (scrollY >= section.offsetTop) {
-          current = section.getAttribute('id');
-        }
-      });
-
-      navLinks.forEach(function(link) {
-        link.classList.remove('active');
-        if (link.getAttribute('data-section') === current) {
-          link.classList.add('active');
-        }
-      });
-    }
-
-    window.addEventListener('scroll', updateNav);
-    updateNav();
-  </script>
-
 </body>
 </html>

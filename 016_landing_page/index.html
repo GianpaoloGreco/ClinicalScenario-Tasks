@@ -7,321 +7,41 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
-    body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
-    .nav-link { transition: all 0.2s; }
-    .nav-link.active { color: #047857; background: #ecfdf5; font-weight: 700; }
+    body { font-family: 'Inter', sans-serif; }
   </style>
 </head>
 <body class="min-h-screen bg-white text-gray-900">
+  <div class="max-w-2xl mx-auto px-6 py-12">
 
-  <!-- ===== BARRA NAVIGAZIONE STICKY ===== -->
-  <div class="sticky top-0 z-50 bg-white border-b-2 border-gray-200 shadow-sm">
-    <div class="max-w-5xl mx-auto flex">
-      <!-- Blocco TASK -->
-      <div class="flex-1 border-r-2 border-gray-200">
-        <div class="px-4 py-1.5 text-[10px] font-bold text-gray-400 uppercase tracking-widest bg-gray-50 border-b border-gray-100">Documentazione Task</div>
-        <div class="flex divide-x divide-gray-100">
-          <a href="#panoramica" class="nav-link flex-1 px-3 py-2.5 text-xs font-semibold text-gray-500 text-center hover:bg-gray-50" data-section="panoramica">Panoramica</a>
-          <a href="#flusso1" class="nav-link flex-1 px-3 py-2.5 text-xs font-semibold text-gray-500 text-center hover:bg-gray-50" data-section="flusso1">Flusso 1</a>
-          <a href="#flusso2" class="nav-link flex-1 px-3 py-2.5 text-xs font-semibold text-gray-500 text-center hover:bg-gray-50" data-section="flusso2">Flusso 2</a>
-          <a href="#flusso3" class="nav-link flex-1 px-3 py-2.5 text-xs font-semibold text-gray-500 text-center hover:bg-gray-50" data-section="flusso3">Flusso 3</a>
-        </div>
-      </div>
-      <!-- Blocco MOCKUP -->
-      <div class="w-56 flex-shrink-0 bg-emerald-500">
-        <div class="px-4 py-1.5 text-[10px] font-bold text-white uppercase tracking-widest border-b border-emerald-400">Mockup live</div>
-        <div class="flex divide-x divide-emerald-400">
-          <a href="file:///Users/gianpaologreco/Desktop/Progetti/PythonProject/ClinicalScenarioMockUp/tasks/016_landing_page/ref/wireframe.html" target="_blank" class="flex-1 px-3 py-2.5 text-xs font-bold text-white text-center hover:bg-emerald-600 transition-colors">Wireframe</a>
-        </div>
-      </div>
+    <div class="mb-8">
+      <span class="px-2.5 py-1 rounded bg-emerald-100 text-emerald-700 text-xs font-bold">TASK 016</span>
+      <h1 class="text-2xl font-extrabold tracking-tight mt-3 mb-1">Landing page</h1>
+      <p class="text-gray-400 text-sm">P2 · Size M · Feature</p>
     </div>
-  </div>
 
-  <div class="max-w-3xl mx-auto px-6 py-12">
+    <p class="text-[15px] text-gray-700 leading-relaxed mb-6">La landing attuale non funziona. Serve una pagina che in 5 secondi dica cosa fa ClinicalScenario e per chi. Target: pharma, societa scientifiche, medical affairs. Niente tecnicismi, niente gamification.</p>
 
-    <!-- ============================================================ -->
-    <!-- PANORAMICA                                                    -->
-    <!-- ============================================================ -->
-    <section id="panoramica" class="scroll-mt-24">
+    <div class="bg-emerald-50 border border-emerald-200 rounded-lg p-4 mb-8">
+      <p class="text-sm text-gray-800">Creare una landing page che comunichi la proposta di valore in 5 secondi con CTA above the fold.</p>
+    </div>
 
-      <!-- Header -->
-      <div class="border-b border-gray-200 pb-8 mb-10">
-        <div class="flex items-center gap-2 flex-wrap">
-          <span class="px-2.5 py-1 rounded bg-emerald-100 text-emerald-700 text-xs font-bold">TASK 016</span>
-          <span class="px-2.5 py-1 rounded bg-yellow-100 text-yellow-700 text-xs font-bold">P2</span>
-          <span class="px-2.5 py-1 rounded bg-blue-100 text-blue-700 text-xs font-bold">Size M</span>
-          <span class="px-2.5 py-1 rounded bg-purple-100 text-purple-700 text-xs font-bold">Feature</span>
-        </div>
-        <h1 class="text-3xl font-extrabold tracking-tight mt-3 mb-1">Landing page</h1>
-        <p class="text-gray-400 text-sm">Nessuna dipendenza</p>
-      </div>
+    <h2 class="text-sm font-bold text-gray-400 uppercase tracking-wider mb-3">Cosa fare</h2>
+    <ol class="space-y-2 text-sm text-gray-700 mb-8 list-decimal list-inside">
+      <li>Hero above the fold: headline + sub + CTA "Richiedi demo"</li>
+      <li>Come funziona: 3 step (carica PDF, clinici rispondono in 5 min, ricevi report)</li>
+      <li>Per chi e: Medical Affairs, pharma advisory board, societa scientifiche</li>
+      <li>Niente certificati, alberi, azioni, termini tecnici</li>
+      <li>Palette: teal #0f6b62, ink #16302c, paper #faf9f5</li>
+    </ol>
 
-      <!-- Descrizione -->
-      <div class="mb-12">
-        <h2 class="text-xl font-extrabold mb-4">Descrizione</h2>
-        <div class="text-[15px] text-gray-700 leading-relaxed space-y-4">
-          <p>ClinicalScenario ha bisogno di una landing page che comunichi cosa fa la piattaforma in 5 secondi. La versione attuale e stata generata rapidamente senza cura e non e all'altezza: non convince un decision maker a richiedere una demo.</p>
-          <p>La nuova pagina deve rispondere a tre domande subito, senza che il visitatore debba scorrere o cercare: <strong>cos'e ClinicalScenario, per chi e pensato, e cosa si ottiene usando la piattaforma</strong>. Il target sono aziende farmaceutiche, societa scientifiche, team di medical affairs - persone che prendono decisioni, non sviluppatori.</p>
-          <p>Il tono e professionale ma accessibile - pensa a una brochure di un congresso medico, non a una pagina di documentazione tecnica. Nessun termine tecnico, nessun gergo interno. La pagina deve comunicare il valore: <strong>"scopri come decide il tuo panel di clinici"</strong>. Il wireframe di riferimento e nella cartella ref/ di questo task.</p>
-        </div>
-      </div>
-
-      <!-- Obiettivo -->
-      <div class="mb-12">
-        <h2 class="text-xl font-extrabold mb-4">Obiettivo</h2>
-        <div class="bg-emerald-50 border border-emerald-200 rounded-lg p-5">
-          <p class="text-[15px] text-gray-800 leading-relaxed">Un potenziale cliente arriva sulla pagina e capisce cosa offre ClinicalScenario entro 5 secondi. C'e una chiamata all'azione chiara per richiedere una demo o mettersi in contatto.</p>
-        </div>
-      </div>
-
-      <!-- Flusso utente (overview) -->
-      <div class="mb-12">
-        <h2 class="text-xl font-extrabold mb-4">Flusso utente</h2>
-        <p class="text-sm text-gray-500 mb-5">Il percorso che fa il visitatore dalla prima schermata alla decisione di contattarci.</p>
-        <div class="space-y-3">
-          <a href="#flusso1" class="block p-5 border-2 border-gray-200 rounded-lg hover:border-emerald-400 transition-all group">
-            <div class="flex items-center gap-4">
-              <div class="w-10 h-10 rounded-full bg-amber-100 text-amber-700 font-bold text-sm flex items-center justify-center flex-shrink-0">1</div>
-              <div class="flex-1">
-                <h3 class="text-base font-bold text-gray-800 group-hover:text-emerald-700">Il visitatore arriva sulla pagina</h3>
-                <p class="text-sm text-gray-500 mt-0.5">Vede immediatamente cosa fa ClinicalScenario e per chi e. La proposta di valore e above the fold.</p>
-              </div>
-            </div>
-          </a>
-          <div class="flex justify-center"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-gray-300"><path d="m6 9 6 6 6-6"></path></svg></div>
-          <a href="#flusso2" class="block p-5 border-2 border-gray-200 rounded-lg hover:border-emerald-400 transition-all group">
-            <div class="flex items-center gap-4">
-              <div class="w-10 h-10 rounded-full bg-emerald-100 text-emerald-700 font-bold text-sm flex items-center justify-center flex-shrink-0">2</div>
-              <div class="flex-1">
-                <h3 class="text-base font-bold text-gray-800 group-hover:text-emerald-700">Capisce come funziona</h3>
-                <p class="text-sm text-gray-500 mt-0.5">Tre step visuali: carica, rispondi, ricevi il report. Semplice e immediato.</p>
-              </div>
-            </div>
-          </a>
-          <div class="flex justify-center"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-gray-300"><path d="m6 9 6 6 6-6"></path></svg></div>
-          <a href="#flusso3" class="block p-5 border-2 border-gray-200 rounded-lg hover:border-emerald-400 transition-all group">
-            <div class="flex items-center gap-4">
-              <div class="w-10 h-10 rounded-full bg-emerald-100 text-emerald-700 font-bold text-sm flex items-center justify-center flex-shrink-0">3</div>
-              <div class="flex-1">
-                <h3 class="text-base font-bold text-gray-800 group-hover:text-emerald-700">Decide di agire</h3>
-                <p class="text-sm text-gray-500 mt-0.5">Chiama all'azione chiara per richiedere una demo o contattare il team.</p>
-              </div>
-            </div>
-          </a>
-        </div>
-      </div>
-
-      <!-- Assumption -->
-      <div class="mb-12">
-        <h2 class="text-xl font-extrabold mb-4">Assumption</h2>
-        <ul class="space-y-3 text-[15px] text-gray-700 leading-relaxed">
-          <li>- I visitatori target sono decision maker pharma, societa scientifiche, team medical affairs.</li>
-          <li>- Nessun riferimento a certificati, gamification, piantagione di alberi o acquisto di azioni nella landing. Quegli elementi appartengono all'area utente post-login.</li>
-          <li>- I contenuti di esempio (testi, titoli) sono modificabili in futuro senza intervento tecnico.</li>
-          <li>- Nessun pricing in questa fase.</li>
-          <li>- La pagina deve funzionare su mobile - approccio mobile-first.</li>
-          <li>- Palette colori: verde teal #0f6b62, inchiostro #16302c, carta #faf9f5. Font Quicksand per i titoli principali.</li>
-        </ul>
-      </div>
-
-      <!-- Cosa togliere - RED BOX -->
-      <div class="mb-12">
-        <h2 class="text-xl font-extrabold mb-4">Cosa NON mettere in questa pagina</h2>
-        <div class="bg-red-50 border-2 border-red-300 rounded-lg p-5">
-          <ul class="space-y-3 text-[15px] text-gray-800 leading-relaxed">
-            <li>- <strong>Certificati</strong> - appartengono all'area utente post-login, non alla landing</li>
-            <li>- <strong>Piantagione di alberi, acquisto di azioni, donazioni</strong> - sono funzionalita di gamification post-certificazione dentro la piattaforma, non argomenti per il prospect</li>
-            <li>- <strong>Termini tecnici</strong> (k-means, IRT, SD, equipoise, discriminazione statistica) - il visitatore e un manager, non un data scientist</li>
-            <li>- <strong>Prezzi</strong> - non in questa fase</li>
-          </ul>
-        </div>
-      </div>
-
-    </section>
-
-    <!-- Separatore tra sezioni -->
-    <div class="border-t-4 border-emerald-200 my-16"></div>
-
-    <!-- ============================================================ -->
-    <!-- FLUSSO 1 - Hero section                                       -->
-    <!-- ============================================================ -->
-    <section id="flusso1" class="scroll-mt-24">
-
-      <div class="border-b border-gray-200 pb-6 mb-8">
-        <span class="text-xs font-bold text-amber-600 uppercase tracking-wider">Flusso 1</span>
-        <h1 class="text-2xl font-extrabold tracking-tight mt-1">Hero section</h1>
-        <p class="text-gray-500 mt-1">La prima schermata - quello che il visitatore vede senza scorrere.</p>
-      </div>
-
-      <div class="mb-10">
-        <h2 class="text-sm font-bold text-gray-400 uppercase tracking-wider mb-4">Cosa deve fare lo sviluppatore</h2>
-        <ul class="space-y-3 text-sm text-gray-700">
-          <li class="flex items-start gap-2">
-            <span class="text-emerald-500 font-bold mt-0.5">1.</span>
-            <span>Logo ClinicalScenario in alto a sinistra.</span>
-          </li>
-          <li class="flex items-start gap-2">
-            <span class="text-emerald-500 font-bold mt-0.5">2.</span>
-            <span><strong>Titolo principale</strong> che comunica il valore in una frase. Esempio: "Scopri come decide il tuo panel di clinici".</span>
-          </li>
-          <li class="flex items-start gap-2">
-            <span class="text-emerald-500 font-bold mt-0.5">3.</span>
-            <span><strong>Sottotitolo</strong> che spiega brevemente il cosa: "Carica un documento clinico, somministra 10 scenari al tuo panel, ricevi il report di decision profiling del gruppo".</span>
-          </li>
-          <li class="flex items-start gap-2">
-            <span class="text-emerald-500 font-bold mt-0.5">4.</span>
-            <span><strong>CTA primaria</strong> visibile above the fold: "Richiedi una demo" o simile, con link al form di contatto.</span>
-          </li>
-          <li class="flex items-start gap-2">
-            <span class="text-emerald-500 font-bold mt-0.5">5.</span>
-            <span><strong>Visual</strong> a destra (screenshot del report o illustrazione che rappresenta il concetto di mappa decisionale).</span>
-          </li>
-        </ul>
-      </div>
-
-      <div class="mb-10">
-        <h2 class="text-sm font-bold text-gray-400 uppercase tracking-wider mb-4">Quando</h2>
-        <p class="text-sm text-gray-700">Sempre visibile come prima sezione della pagina, senza scorrere.</p>
-      </div>
-
-    </section>
-
-    <!-- Separatore -->
-    <div class="border-t-4 border-emerald-200 my-16"></div>
-
-    <!-- ============================================================ -->
-    <!-- FLUSSO 2 - Come funziona                                      -->
-    <!-- ============================================================ -->
-    <section id="flusso2" class="scroll-mt-24">
-
-      <div class="border-b border-gray-200 pb-6 mb-8">
-        <span class="text-xs font-bold text-emerald-600 uppercase tracking-wider">Flusso 2</span>
-        <h1 class="text-2xl font-extrabold tracking-tight mt-1">Come funziona</h1>
-        <p class="text-gray-500 mt-1">I tre step del processo, spiegati in modo visivo e immediato.</p>
-      </div>
-
-      <div class="mb-10">
-        <h2 class="text-sm font-bold text-gray-400 uppercase tracking-wider mb-4">Cosa deve fare lo sviluppatore</h2>
-        <ul class="space-y-3 text-sm text-gray-700">
-          <li class="flex items-start gap-2">
-            <span class="text-emerald-500 font-bold mt-0.5">1.</span>
-            <span>Tre blocchi visivi in sequenza orizzontale (o verticale su mobile) con numero, icona e testo breve.</span>
-          </li>
-          <li class="flex items-start gap-2">
-            <span class="text-emerald-500 font-bold mt-0.5">2.</span>
-            <span><strong>Step 1:</strong> "Carica il tuo documento medico" - il committente carica un PDF clinico (linea guida, consensus, protocollo).</span>
-          </li>
-          <li class="flex items-start gap-2">
-            <span class="text-emerald-500 font-bold mt-0.5">3.</span>
-            <span><strong>Step 2:</strong> "I clinici rispondono a 10 scenari in 5 minuti" - il panel riceve un link e risponde da qualsiasi dispositivo.</span>
-          </li>
-          <li class="flex items-start gap-2">
-            <span class="text-emerald-500 font-bold mt-0.5">4.</span>
-            <span><strong>Step 3:</strong> "Ricevi il report di decision profiling del gruppo" - una mappa visuale di come il gruppo decide, con profili e aree di allineamento.</span>
-          </li>
-        </ul>
-      </div>
-
-      <div class="mb-10">
-        <h2 class="text-sm font-bold text-gray-400 uppercase tracking-wider mb-4">Quando</h2>
-        <p class="text-sm text-gray-700">Sotto la hero section, visibile scorrendo verso il basso.</p>
-      </div>
-
-    </section>
-
-    <!-- Separatore -->
-    <div class="border-t-4 border-emerald-200 my-16"></div>
-
-    <!-- ============================================================ -->
-    <!-- FLUSSO 3 - Per chi e / CTA finale                            -->
-    <!-- ============================================================ -->
-    <section id="flusso3" class="scroll-mt-24">
-
-      <div class="border-b border-gray-200 pb-6 mb-8">
-        <span class="text-xs font-bold text-emerald-600 uppercase tracking-wider">Flusso 3</span>
-        <h1 class="text-2xl font-extrabold tracking-tight mt-1">Per chi e - e CTA finale</h1>
-        <p class="text-gray-500 mt-1">La sezione che identifica il target e invita all'azione.</p>
-      </div>
-
-      <div class="mb-10">
-        <h2 class="text-sm font-bold text-gray-400 uppercase tracking-wider mb-4">Cosa deve fare lo sviluppatore</h2>
-        <ul class="space-y-3 text-sm text-gray-700">
-          <li class="flex items-start gap-2">
-            <span class="text-emerald-500 font-bold mt-0.5">1.</span>
-            <span>Una sezione che elenca i profili target con titolo e breve descrizione del loro caso d'uso specifico.</span>
-          </li>
-          <li class="flex items-start gap-2">
-            <span class="text-emerald-500 font-bold mt-0.5">2.</span>
-            <span><strong>Medical Affairs e MSL:</strong> mappare l'orientamento del panel prima di un incontro scientifico o advisory board.</span>
-          </li>
-          <li class="flex items-start gap-2">
-            <span class="text-emerald-500 font-bold mt-0.5">3.</span>
-            <span><strong>Aziende farmaceutiche:</strong> capire le preferenze del panel su specifici scenari terapeutici prima di organizzare eventi formativi.</span>
-          </li>
-          <li class="flex items-start gap-2">
-            <span class="text-emerald-500 font-bold mt-0.5">4.</span>
-            <span><strong>Societa scientifiche:</strong> misurare l'adozione delle proprie linee guida tra i membri.</span>
-          </li>
-          <li class="flex items-start gap-2">
-            <span class="text-emerald-500 font-bold mt-0.5">5.</span>
-            <span><strong>CTA finale:</strong> una sezione in fondo alla pagina con headline ("Vuoi vedere come funziona?") e bottone per richiedere una demo o inviare un messaggio.</span>
-          </li>
-        </ul>
-      </div>
-
-      <div class="mb-10">
-        <h2 class="text-sm font-bold text-gray-400 uppercase tracking-wider mb-4">Quando</h2>
-        <p class="text-sm text-gray-700">Nella parte inferiore della pagina, dopo la sezione "Come funziona".</p>
-      </div>
-
-    </section>
-
-    <!-- Separatore -->
-    <div class="border-t-4 border-emerald-200 my-16"></div>
-
-    <!-- ============================================================ -->
-    <!-- CRITERI DI ACCETTAZIONE                                       -->
-    <!-- ============================================================ -->
-    <section class="mb-16">
-      <h2 class="text-xl font-extrabold mb-6">Criteri di accettazione</h2>
-      <ul class="space-y-3 text-[15px] text-gray-700 leading-relaxed">
-        <li>- La pagina comunica cosa fa ClinicalScenario in 5 secondi senza scorrere</li>
-        <li>- La CTA e visibile above the fold</li>
-        <li>- Nessun riferimento a certificati, gamification, alberi o azioni</li>
-        <li>- Nessun termine tecnico nella pagina</li>
-        <li>- La pagina e responsive e fruibile su mobile</li>
-        <li>- I colori e i font sono coerenti con la palette del brand (teal, inchiostro, carta)</li>
-      </ul>
-    </section>
+    <h2 class="text-sm font-bold text-gray-400 uppercase tracking-wider mb-3">Criteri di accettazione</h2>
+    <ul class="space-y-1.5 text-sm text-gray-700">
+      <li class="flex items-start gap-2"><span class="text-emerald-500 mt-0.5">&#10003;</span> Proposta di valore chiara in 5 secondi</li>
+      <li class="flex items-start gap-2"><span class="text-emerald-500 mt-0.5">&#10003;</span> CTA above the fold</li>
+      <li class="flex items-start gap-2"><span class="text-emerald-500 mt-0.5">&#10003;</span> Zero tecnicismi e zero gamification</li>
+      <li class="flex items-start gap-2"><span class="text-emerald-500 mt-0.5">&#10003;</span> Mobile-first</li>
+    </ul>
 
   </div>
-
-  <!-- ===== SCROLL SPY ===== -->
-  <script>
-    var sections = document.querySelectorAll('section[id]');
-    var navLinks = document.querySelectorAll('.nav-link');
-
-    function updateNav() {
-      var scrollY = window.scrollY + 120;
-      var current = 'panoramica';
-
-      sections.forEach(function(section) {
-        if (scrollY >= section.offsetTop) {
-          current = section.getAttribute('id');
-        }
-      });
-
-      navLinks.forEach(function(link) {
-        link.classList.remove('active');
-        if (link.getAttribute('data-section') === current) {
-          link.classList.add('active');
-        }
-      });
-    }
-
-    window.addEventListener('scroll', updateNav);
-    updateNav();
-  </script>
-
 </body>
 </html>
