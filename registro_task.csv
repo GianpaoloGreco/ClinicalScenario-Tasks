@@ -9,10 +9,8 @@ id,tipo,area,titolo,stato,priorita,size
 008,feature,bi,Engine BI preferenza: assi + k-means cluster + entity adoption + crosscut,done,P1,L
 009,feature,dashboard,Dashboard API + pagina risultati BI,done,P1,M
 010,feature,test,Seed domande campione + simulazione 3 medici + verifica BI,done,P1,L
-011,feature,pipeline,Standardizza generazione domande AI (preset 5/10/15 + formato BI-ready),todo,P0,L
-012,feature,pipeline,Integra normalizzazione PDF (Markdown + catalog JSON dinamico),todo,P1,M
-013,fix,report,Fix comunicazione report BI (linguaggio comprensibile + UX),todo,P0,M
-014,feature,bi,Integra engine BI report backend (competenza + preferenza + crosscut),todo,P1,L
-015,feature,dashboard,Dashboard frontend BI (report sintesi + approfondito + export PDF),todo,P1,L
-016,feature,frontend,Landing page ClinicalScenario (da wireframe),todo,P2,M
+011,feature,pipeline,Standardizza generazione domande (preset 5/10/15 + facile/impegnativo),todo,P0,M
+014,feature,bi,Motore di analisi (competenza + preferenza + crosscut + profili),todo,P1,L
+015,feature,dashboard,Report visuale (Sintesi + Approfondita + export PDF),todo,P1,L
+016,feature,frontend,Landing page ClinicalScenario,todo,P2,M
 017,feature,export,Export Excel arricchito (5 fogli BI + risposte con profilo),todo,P1,S
