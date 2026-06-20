@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task 012 - Normalizzazione automatica dei documenti</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+    body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
+    .nav-link { transition: all 0.2s; }
+    .nav-link.active { color: #047857; background: #ecfdf5; font-weight: 700; }
+  </style>
+</head>
+<body class="min-h-screen bg-white text-gray-900">
+
+  <!-- ===== BARRA NAVIGAZIONE STICKY ===== -->
+  <div class="sticky top-0 z-50 bg-white border-b-2 border-gray-200 shadow-sm">
+    <div class="max-w-5xl mx-auto flex">
+      <!-- Blocco TASK -->
+      <div class="flex-1 border-r-2 border-gray-200">
+        <div class="px-4 py-1.5 text-[10px] font-bold text-gray-400 uppercase tracking-widest bg-gray-50 border-b border-gray-100">Documentazione Task</div>
+        <div class="flex divide-x divide-gray-100">
+          <a href="#panoramica" class="nav-link flex-1 px-3 py-2.5 text-xs font-semibold text-gray-500 text-center hover:bg-gray-50" data-section="panoramica">Panoramica</a>
+          <a href="#flusso1" class="nav-link flex-1 px-3 py-2.5 text-xs font-semibold text-gray-500 text-center hover:bg-gray-50" data-section="flusso1">Flusso 1</a>
+          <a href="#flusso2" class="nav-link flex-1 px-3 py-2.5 text-xs font-semibold text-gray-500 text-center hover:bg-gray-50" data-section="flusso2">Flusso 2</a>
+          <a href="#flusso3" class="nav-link flex-1 px-3 py-2.5 text-xs font-semibold text-gray-500 text-center hover:bg-gray-50" data-section="flusso3">Flusso 3</a>
+        </div>
+      </div>
+      <!-- Blocco MOCKUP -->
+      <div class="w-56 flex-shrink-0 bg-gray-100">
+        <div class="px-4 py-1.5 text-[10px] font-bold text-gray-400 uppercase tracking-widest border-b border-gray-200">Mockup live</div>
+        <div class="flex items-center justify-center h-10">
+          <span class="text-xs text-gray-400 italic">Nessun mockup per questo task</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="max-w-3xl mx-auto px-6 py-12">
+
+    <!-- ============================================================ -->
+    <!-- PANORAMICA                                                    -->
+    <!-- ============================================================ -->
+    <section id="panoramica" class="scroll-mt-24">
+
+      <!-- Header -->
+      <div class="border-b border-gray-200 pb-8 mb-10">
+        <span class="px-2.5 py-1 rounded bg-sky-100 text-sky-700 text-xs font-bold">TASK 012</span>
+        <h1 class="text-3xl font-extrabold tracking-tight mt-3 mb-1">Normalizzazione automatica dei documenti</h1>
+        <p class="text-gray-400 text-sm">Priorita P1 - Size M - Feature</p>
+      </div>
+
+      <!-- Descrizione -->
+      <div class="mb-12">
+        <h2 class="text-xl font-extrabold mb-4">Descrizione</h2>
+        <div class="text-[15px] text-gray-700 leading-relaxed space-y-4">
+          <p>Quando un operatore carica un documento medico sulla piattaforma, il sistema deve <strong>"capire" il contenuto</strong> prima di poter generare domande utili. Oggi questo passaggio non esiste: il documento viene usato direttamente per generare domande, con risultati lenti, incoerenti e difficili da controllare.</p>
+          <p>La soluzione e un <strong>processo in due fasi</strong>: prima il sistema analizza e struttura il documento, poi usa quella struttura per generare le domande. La prima fase - la normalizzazione - produce due risultati: una versione pulita e strutturata del contenuto, e un <strong>catalogo delle decisioni cliniche</strong> trovate nel documento.</p>
+          <p>Punto fondamentale: la normalizzazione deve essere <strong>quantitativa, non riassuntiva</strong>. Deve estrarre quante piu informazioni possibile dal documento - ogni dettaglio clinico, ogni opzione terapeutica, ogni raccomandazione - perche quei dati poi alimentano la generazione delle domande. Un riassunto per pagina con bullet point non basta: serve il contenuto completo strutturato.</p>
+          <p>Dal catalogo nascono gli <strong>assi di preferenza</strong> che compaiono nel report di analisi finale (ad esempio "monoterapia vs switch", "approccio conservativo vs aggressivo"). Questi assi non sono fissi: <strong>ogni documento produce i propri</strong>, specifici per quel contenuto. Un PDF di anestesia avra assi diversi da uno di cardiologia. Il sistema li estrae automaticamente dal contenuto.</p>
+          <p>Il catalogo e il pezzo che collega tutto: documento, domande e report. Senza di esso, ogni parte del sistema lavora in modo isolato.</p>
+        </div>
+      </div>
+
+      <!-- Obiettivo -->
+      <div class="mb-12">
+        <h2 class="text-xl font-extrabold mb-4">Obiettivo</h2>
+        <div class="bg-sky-50 border border-sky-200 rounded-lg p-5">
+          <p class="text-[15px] text-gray-800 leading-relaxed">Quando un operatore carica un documento, il sistema lo analizza automaticamente e produce un catalogo di decisioni cliniche. Questo catalogo diventa la base per la generazione delle domande e per il report di analisi delle risposte.</p>
+        </div>
+      </div>
+
+      <!-- Flusso utente (overview) -->
+      <div class="mb-12">
+        <h2 class="text-xl font-extrabold mb-4">Flusso utente</h2>
+        <p class="text-sm text-gray-500 mb-5">Questo e il percorso che fa l'operatore dall'upload del documento alla disponibilita per la generazione domande. Clicca su ogni step per vedere i dettagli.</p>
+        <div class="space-y-3">
+          <a href="#flusso1" class="block p-5 border-2 border-gray-200 rounded-lg hover:border-sky-400 transition-all group">
+            <div class="flex items-center gap-4">
+              <div class="w-10 h-10 rounded-full bg-amber-100 text-amber-700 font-bold text-sm flex items-center justify-center flex-shrink-0">1</div>
+              <div class="flex-1">
+                <h3 class="text-base font-bold text-gray-800 group-hover:text-sky-700">L'operatore carica un documento medico</h3>
+                <p class="text-sm text-gray-500 mt-0.5">Carica il documento sulla piattaforma. Il sistema avvia automaticamente l'analisi in background.</p>
+              </div>
+            </div>
+          </a>
+          <div class="flex justify-center"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-gray-300"><path d="m6 9 6 6 6-6"></path></svg></div>
+          <a href="#flusso2" class="block p-5 border-2 border-gray-200 rounded-lg hover:border-sky-400 transition-all group">
+            <div class="flex items-center gap-4">
+              <div class="w-10 h-10 rounded-full bg-sky-100 text-sky-700 font-bold text-sm flex items-center justify-center flex-shrink-0">2</div>
+              <div class="flex-1">
+                <h3 class="text-base font-bold text-gray-800 group-hover:text-sky-700">Il sistema analizza il documento</h3>
+                <p class="text-sm text-gray-500 mt-0.5">Normalizzazione automatica: estrae il contenuto strutturato e il catalogo delle decisioni cliniche. L'operatore puo continuare a usare la piattaforma.</p>
+              </div>
+            </div>
+          </a>
+          <div class="flex justify-center"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-gray-300"><path d="m6 9 6 6 6-6"></path></svg></div>
+          <a href="#flusso3" class="block p-5 border-2 border-gray-200 rounded-lg hover:border-sky-400 transition-all group">
+            <div class="flex items-center gap-4">
+              <div class="w-10 h-10 rounded-full bg-sky-100 text-sky-700 font-bold text-sm flex items-center justify-center flex-shrink-0">3</div>
+              <div class="flex-1">
+                <h3 class="text-base font-bold text-gray-800 group-hover:text-sky-700">Il documento e pronto</h3>
+                <p class="text-sm text-gray-500 mt-0.5">L'operatore vede che il documento e stato processato e puo procedere con la creazione del quiz.</p>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <!-- Assumption -->
+      <div class="mb-12">
+        <h2 class="text-xl font-extrabold mb-4">Assumption</h2>
+        <ul class="space-y-3 text-[15px] text-gray-700 leading-relaxed">
+          <li>- La normalizzazione avviene automaticamente dopo l'upload, senza intervento dell'operatore.</li>
+          <li>- Gli assi di preferenza sono dinamici: vengono estratti dal contenuto del documento, non sono predefiniti. Un documento di cardiologia avra assi diversi da uno di anestesia.</li>
+          <li>- Il catalogo include: argomento principale, specialita medica, punti di decisione clinica con relative opzioni, forza dell'evidenza scientifica per ciascuna opzione, e se esiste una scelta preferibile o se le opzioni sono equivalenti.</li>
+          <li>- Se il documento non contiene abbastanza contenuto clinico per estrarre decisioni significative, il sistema lo segnala all'operatore.</li>
+          <li>- Il tempo di elaborazione puo variare tra 30 secondi e 2 minuti a seconda della lunghezza e complessita del documento.</li>
+        </ul>
+      </div>
+
+    </section>
+
+    <!-- Separatore tra sezioni -->
+    <div class="border-t-4 border-sky-200 my-16"></div>
+
+    <!-- ============================================================ -->
+    <!-- FLUSSO 1 - Upload del documento                              -->
+    <!-- ============================================================ -->
+    <section id="flusso1" class="scroll-mt-24">
+
+      <div class="border-b border-gray-200 pb-6 mb-8">
+        <span class="text-xs font-bold text-amber-600 uppercase tracking-wider">Flusso 1</span>
+        <h1 class="text-2xl font-extrabold tracking-tight mt-1">Upload del documento</h1>
+        <p class="text-gray-500 mt-1">Cosa succede dal punto di vista dell'operatore subito dopo aver caricato un documento.</p>
+      </div>
+
+      <!-- Cosa fare -->
+      <div class="mb-10">
+        <h2 class="text-sm font-bold text-gray-400 uppercase tracking-wider mb-4">Cosa deve fare lo sviluppatore</h2>
+        <ul class="space-y-3 text-sm text-gray-700">
+          <li class="flex items-start gap-2">
+            <span class="text-sky-500 font-bold mt-0.5">1.</span>
+            <span>Dopo che l'operatore carica un documento, <strong>avviare automaticamente il processo di normalizzazione</strong> senza richiedere alcuna azione aggiuntiva.</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-sky-500 font-bold mt-0.5">2.</span>
+            <span>Mostrare un <strong>indicatore di avanzamento</strong> associato al documento (ad esempio "In elaborazione...") visibile nella lista documenti o nella scheda del documento.</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-sky-500 font-bold mt-0.5">3.</span>
+            <span>L'operatore deve poter <strong>continuare a usare la piattaforma</strong> mentre la normalizzazione procede in background: non deve essere bloccato su una schermata di attesa.</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Condizione -->
+      <div class="mb-10">
+        <h2 class="text-sm font-bold text-gray-400 uppercase tracking-wider mb-4">Quando si attiva</h2>
+        <p class="text-sm text-gray-700">Immediatamente dopo il completamento dell'upload di un nuovo documento medico.</p>
+      </div>
+
+    </section>
+
+    <!-- Separatore -->
+    <div class="border-t-4 border-sky-200 my-16"></div>
+
+    <!-- ============================================================ -->
+    <!-- FLUSSO 2 - Analisi e normalizzazione                         -->
+    <!-- ============================================================ -->
+    <section id="flusso2" class="scroll-mt-24">
+
+      <div class="border-b border-gray-200 pb-6 mb-8">
+        <span class="text-xs font-bold text-sky-600 uppercase tracking-wider">Flusso 2</span>
+        <h1 class="text-2xl font-extrabold tracking-tight mt-1">Analisi e normalizzazione</h1>
+        <p class="text-gray-500 mt-1">Il processo automatico che trasforma il documento in contenuto strutturato e catalogo clinico. Invisibile all'operatore, ma critico per tutto il sistema.</p>
+      </div>
+
+      <!-- Cosa fare -->
+      <div class="mb-10">
+        <h2 class="text-sm font-bold text-gray-400 uppercase tracking-wider mb-4">Cosa deve fare lo sviluppatore</h2>
+        <ul class="space-y-3 text-sm text-gray-700">
+          <li class="flex items-start gap-2">
+            <span class="text-sky-500 font-bold mt-0.5">1.</span>
+            <span>Il sistema deve <strong>estrarre il testo da ogni pagina</strong> del documento caricato.</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-sky-500 font-bold mt-0.5">2.</span>
+            <span>Un modello di intelligenza artificiale analizza il testo estratto e produce <strong>due output distinti</strong>: una versione strutturata del contenuto in formato leggibile, e il catalogo delle decisioni cliniche.</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-sky-500 font-bold mt-0.5">3.</span>
+            <span>Il catalogo deve identificare <strong>3-5 assi di preferenza clinica</strong>, ciascuno con due poli opposti (es. "approccio conservativo" vs "approccio interventistico"). Questi assi vengono estratti dal contenuto del documento, non sono predefiniti.</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-sky-500 font-bold mt-0.5">4.</span>
+            <span>Il catalogo deve identificare <strong>i punti decisionali specifici</strong> presenti nel documento, con la forza dell'evidenza scientifica associata a ciascuno.</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-sky-500 font-bold mt-0.5">5.</span>
+            <span>Entrambi gli output devono essere <strong>salvati e collegati al documento</strong>, in modo da essere disponibili per la generazione delle domande e per il report di analisi.</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Struttura del catalogo -->
+      <div class="mb-10">
+        <h2 class="text-sm font-bold text-gray-400 uppercase tracking-wider mb-4">Contenuto del catalogo delle decisioni cliniche</h2>
+        <p class="text-sm text-gray-700 mb-4">Il catalogo e il documento strutturato che il sistema produce per ogni documento normalizzato. Contiene:</p>
+        <div class="border border-gray-200 rounded-lg divide-y divide-gray-200">
+          <div class="flex items-start gap-3 p-4">
+            <span class="w-2 h-2 rounded-full bg-sky-400 flex-shrink-0 mt-1.5"></span>
+            <div>
+              <p class="text-sm font-semibold text-gray-700">Argomento principale e specialita medica</p>
+              <p class="text-xs text-gray-400">Di cosa parla il documento e in quale ambito clinico si colloca.</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-3 p-4">
+            <span class="w-2 h-2 rounded-full bg-sky-400 flex-shrink-0 mt-1.5"></span>
+            <div>
+              <p class="text-sm font-semibold text-gray-700">Assi di preferenza (3-5)</p>
+              <p class="text-xs text-gray-400">Le dimensioni lungo cui i clinici si dividono. Ogni asse ha due poli opposti, estratti direttamente dal contenuto del documento.</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-3 p-4">
+            <span class="w-2 h-2 rounded-full bg-sky-400 flex-shrink-0 mt-1.5"></span>
+            <div>
+              <p class="text-sm font-semibold text-gray-700">Punti decisionali specifici</p>
+              <p class="text-xs text-gray-400">Le scelte concrete che il clinico deve affrontare, con le opzioni disponibili per ciascuna.</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-3 p-4">
+            <span class="w-2 h-2 rounded-full bg-sky-400 flex-shrink-0 mt-1.5"></span>
+            <div>
+              <p class="text-sm font-semibold text-gray-700">Forza dell'evidenza scientifica</p>
+              <p class="text-xs text-gray-400">Per ogni punto decisionale, quanto e solida l'evidenza a supporto delle opzioni.</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-3 p-4">
+            <span class="w-2 h-2 rounded-full bg-sky-400 flex-shrink-0 mt-1.5"></span>
+            <div>
+              <p class="text-sm font-semibold text-gray-700">Presenza o assenza di una risposta "corretta"</p>
+              <p class="text-xs text-gray-400">Se per quel punto decisionale esiste una scelta preferibile secondo la letteratura, oppure se le opzioni sono equivalenti e la scelta dipende dal contesto.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Condizione -->
+      <div class="mb-10">
+        <h2 class="text-sm font-bold text-gray-400 uppercase tracking-wider mb-4">Quando si attiva</h2>
+        <p class="text-sm text-gray-700">Processo in background, trasparente all'operatore. Si avvia subito dopo l'upload e procede senza interazioni.</p>
+      </div>
+
+    </section>
+
+    <!-- Separatore -->
+    <div class="border-t-4 border-sky-200 my-16"></div>
+
+    <!-- ============================================================ -->
+    <!-- FLUSSO 3 - Documento pronto                                   -->
+    <!-- ============================================================ -->
+    <section id="flusso3" class="scroll-mt-24">
+
+      <div class="border-b border-gray-200 pb-6 mb-8">
+        <span class="text-xs font-bold text-sky-600 uppercase tracking-wider">Flusso 3</span>
+        <h1 class="text-2xl font-extrabold tracking-tight mt-1">Documento pronto</h1>
+        <p class="text-gray-500 mt-1">Cosa vede l'operatore quando la normalizzazione e completata - o quando fallisce.</p>
+      </div>
+
+      <!-- Cosa fare -->
+      <div class="mb-10">
+        <h2 class="text-sm font-bold text-gray-400 uppercase tracking-wider mb-4">Cosa deve fare lo sviluppatore</h2>
+        <ul class="space-y-3 text-sm text-gray-700">
+          <li class="flex items-start gap-2">
+            <span class="text-sky-500 font-bold mt-0.5">1.</span>
+            <span>Aggiornare lo <strong>stato del documento</strong> per mostrare che e stato elaborato e pronto all'uso (ad esempio passando da "In elaborazione" a "Pronto").</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-sky-500 font-bold mt-0.5">2.</span>
+            <span>Rendere disponibile l'azione di <strong>creazione quiz</strong> per quel documento. Prima del completamento della normalizzazione, questa azione non deve essere accessibile.</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-sky-500 font-bold mt-0.5">3.</span>
+            <span>Se la normalizzazione fallisce, mostrare un <strong>messaggio di errore chiaro</strong> con la possibilita di ritentare il processo senza dover ricaricare il documento.</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Condizione -->
+      <div class="mb-10">
+        <h2 class="text-sm font-bold text-gray-400 uppercase tracking-wider mb-4">Quando si attiva</h2>
+        <p class="text-sm text-gray-700">Al termine del processo di normalizzazione, sia in caso di successo che di errore.</p>
+      </div>
+
+    </section>
+
+    <!-- Separatore -->
+    <div class="border-t-4 border-sky-200 my-16"></div>
+
+    <!-- ============================================================ -->
+    <!-- CRITERI DI ACCETTAZIONE                                       -->
+    <!-- ============================================================ -->
+    <section class="mb-16">
+      <h2 class="text-xl font-extrabold mb-6">Criteri di accettazione</h2>
+      <ul class="space-y-3 text-[15px] text-gray-700 leading-relaxed">
+        <li>- L'upload di un documento avvia automaticamente la normalizzazione, senza azioni aggiuntive dell'operatore.</li>
+        <li>- L'operatore vede lo stato di avanzamento dell'elaborazione e puo continuare a usare la piattaforma nel frattempo.</li>
+        <li>- Il documento normalizzato include un catalogo con assi di preferenza specifici per quel documento (non generici).</li>
+        <li>- Il catalogo e utilizzabile sia dalla generazione domande che dal report di analisi.</li>
+        <li>- Prima che la normalizzazione sia completata, non e possibile creare quiz da quel documento.</li>
+        <li>- In caso di errore, l'operatore vede un messaggio chiaro e puo ritentare la normalizzazione.</li>
+      </ul>
+    </section>
+
+  </div>
+
+  <!-- ===== SCROLL SPY ===== -->
+  <script>
+    var sections = document.querySelectorAll('section[id]');
+    var navLinks = document.querySelectorAll('.nav-link');
+
+    function updateNav() {
+      var scrollY = window.scrollY + 120;
+      var current = 'panoramica';
+
+      sections.forEach(function(section) {
+        if (scrollY >= section.offsetTop) {
+          current = section.getAttribute('id');
+        }
+      });
+
+      navLinks.forEach(function(link) {
+        link.classList.remove('active');
+        if (link.getAttribute('data-section') === current) {
+          link.classList.add('active');
+        }
+      });
+    }
+
+    window.addEventListener('scroll', updateNav);
+    updateNav();
+  </script>
+
+</body>
+</html>

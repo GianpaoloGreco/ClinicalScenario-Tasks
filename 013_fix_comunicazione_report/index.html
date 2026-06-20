@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task 013 - Rendere il report comprensibile</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+    body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
+    .nav-link { transition: all 0.2s; }
+    .nav-link.active { color: #047857; background: #ecfdf5; font-weight: 700; }
+  </style>
+</head>
+<body class="min-h-screen bg-white text-gray-900">
+
+  <!-- ===== BARRA NAVIGAZIONE STICKY ===== -->
+  <div class="sticky top-0 z-50 bg-white border-b-2 border-gray-200 shadow-sm">
+    <div class="max-w-5xl mx-auto flex">
+      <!-- Blocco TASK -->
+      <div class="flex-1 border-r-2 border-gray-200">
+        <div class="px-4 py-1.5 text-[10px] font-bold text-gray-400 uppercase tracking-widest bg-gray-50 border-b border-gray-100">Documentazione Task</div>
+        <div class="flex divide-x divide-gray-100">
+          <a href="#panoramica" class="nav-link flex-1 px-3 py-2.5 text-xs font-semibold text-gray-500 text-center hover:bg-gray-50" data-section="panoramica">Panoramica</a>
+          <a href="#flusso1" class="nav-link flex-1 px-3 py-2.5 text-xs font-semibold text-gray-500 text-center hover:bg-gray-50" data-section="flusso1">Flusso 1</a>
+          <a href="#flusso2" class="nav-link flex-1 px-3 py-2.5 text-xs font-semibold text-gray-500 text-center hover:bg-gray-50" data-section="flusso2">Flusso 2</a>
+          <a href="#flusso3" class="nav-link flex-1 px-3 py-2.5 text-xs font-semibold text-gray-500 text-center hover:bg-gray-50" data-section="flusso3">Flusso 3</a>
+          <a href="#flusso4" class="nav-link flex-1 px-3 py-2.5 text-xs font-semibold text-gray-500 text-center hover:bg-gray-50" data-section="flusso4">Flusso 4</a>
+        </div>
+      </div>
+      <!-- Blocco MOCKUP -->
+      <div class="w-48 flex-shrink-0 bg-emerald-500">
+        <div class="px-4 py-1.5 text-[10px] font-bold text-white uppercase tracking-widest border-b border-emerald-400">Mockup live</div>
+        <div class="flex divide-x divide-emerald-400">
+          <a href="http://localhost:3000/operator/bi?quizId=1f998924-5657-4c46-bc30-d5d38a7dc941" target="_blank" class="flex-1 px-3 py-2.5 text-xs font-bold text-white text-center hover:bg-emerald-600 transition-colors">Report live</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="max-w-3xl mx-auto px-6 py-12">
+
+    <!-- ============================================================ -->
+    <!-- PANORAMICA                                                    -->
+    <!-- ============================================================ -->
+    <section id="panoramica" class="scroll-mt-24">
+
+      <!-- Header -->
+      <div class="border-b border-gray-200 pb-8 mb-10">
+        <span class="px-2.5 py-1 rounded bg-red-100 text-red-700 text-xs font-bold">TASK 013 - P0</span>
+        <h1 class="text-3xl font-extrabold tracking-tight mt-3 mb-1">Rendere il report comprensibile</h1>
+        <p class="text-gray-400 text-sm">Priorita P0 - Size M - Fix</p>
+      </div>
+
+      <!-- Descrizione -->
+      <div class="mb-12">
+        <h2 class="text-xl font-extrabold mb-4">Descrizione</h2>
+        <div class="text-[15px] text-gray-700 leading-relaxed space-y-4">
+          <p>Il report di analisi e il principale prodotto consegnato da ClinicalScenario - e cio per cui la casa farmaceutica o la societa scientifica paga. Oggi pero il report usa un linguaggio che solo uno psicometrista conosce: termini tecnici, abbreviazioni statistiche, etichette di stato poco chiare.</p>
+          <p>Un direttore medico o un PM pharma che apre il report per la prima volta non capisce cosa sta guardando. Mancano il contesto iniziale, le spiegazioni e un linguaggio accessibile. Le etichette di stato sono ambigue. La parola "item" appare ovunque al posto di "domande". I valori numerici grezzi come SD e discriminazione compaiono senza spiegazione.</p>
+          <p>Il report deve parlare la lingua del lettore. Ogni sezione - tabelle, grafici, profili individuali - deve essere comprensibile da sola, senza bisogno di formazione. Un lettore che non ha mai visto ClinicalScenario deve capire cosa sta guardando entro 30 secondi dall'apertura.</p>
+        </div>
+      </div>
+
+      <!-- Obiettivo -->
+      <div class="mb-12">
+        <h2 class="text-xl font-extrabold mb-4">Obiettivo</h2>
+        <div class="bg-emerald-50 border border-emerald-200 rounded-lg p-5">
+          <p class="text-[15px] text-gray-800 leading-relaxed">Una persona che non ha mai visto ClinicalScenario apre il report e capisce cosa sta guardando entro 30 secondi, senza nessuna spiegazione esterna.</p>
+        </div>
+      </div>
+
+      <!-- Flusso utente (overview) -->
+      <div class="mb-12">
+        <h2 class="text-xl font-extrabold mb-4">Aree del report da correggere</h2>
+        <p class="text-sm text-gray-500 mb-5">Quattro aree del report vengono corrette in parallelo. Clicca su ciascuna per vedere i dettagli.</p>
+        <div class="space-y-3">
+          <a href="#flusso1" class="block p-5 border-2 border-gray-200 rounded-lg hover:border-emerald-400 transition-all group">
+            <div class="flex items-center gap-4">
+              <div class="w-10 h-10 rounded-full bg-amber-100 text-amber-700 font-bold text-sm flex items-center justify-center flex-shrink-0">1</div>
+              <div class="flex-1">
+                <h3 class="text-base font-bold text-gray-800 group-hover:text-emerald-700">Intestazione e contesto</h3>
+                <p class="text-sm text-gray-500 mt-0.5">Il lettore capisce subito cosa sta guardando prima di vedere qualsiasi dato.</p>
+              </div>
+            </div>
+          </a>
+          <div class="flex justify-center"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-gray-300"><path d="m6 9 6 6 6-6"></path></svg></div>
+          <a href="#flusso2" class="block p-5 border-2 border-gray-200 rounded-lg hover:border-emerald-400 transition-all group">
+            <div class="flex items-center gap-4">
+              <div class="w-10 h-10 rounded-full bg-emerald-100 text-emerald-700 font-bold text-sm flex items-center justify-center flex-shrink-0">2</div>
+              <div class="flex-1">
+                <h3 class="text-base font-bold text-gray-800 group-hover:text-emerald-700">Tabelle e indicatori</h3>
+                <p class="text-sm text-gray-500 mt-0.5">I numeri e le etichette hanno nomi comprensibili e si spiegano da soli.</p>
+              </div>
+            </div>
+          </a>
+          <div class="flex justify-center"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-gray-300"><path d="m6 9 6 6 6-6"></path></svg></div>
+          <a href="#flusso3" class="block p-5 border-2 border-gray-200 rounded-lg hover:border-emerald-400 transition-all group">
+            <div class="flex items-center gap-4">
+              <div class="w-10 h-10 rounded-full bg-emerald-100 text-emerald-700 font-bold text-sm flex items-center justify-center flex-shrink-0">3</div>
+              <div class="flex-1">
+                <h3 class="text-base font-bold text-gray-800 group-hover:text-emerald-700">Grafici e visualizzazioni</h3>
+                <p class="text-sm text-gray-500 mt-0.5">La legenda e visibile prima del grafico, i punti non si sovrappongono, il tooltip mostra il testo della domanda.</p>
+              </div>
+            </div>
+          </a>
+          <div class="flex justify-center"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-gray-300"><path d="m6 9 6 6 6-6"></path></svg></div>
+          <a href="#flusso4" class="block p-5 border-2 border-gray-200 rounded-lg hover:border-emerald-400 transition-all group">
+            <div class="flex items-center gap-4">
+              <div class="w-10 h-10 rounded-full bg-emerald-100 text-emerald-700 font-bold text-sm flex items-center justify-center flex-shrink-0">4</div>
+              <div class="flex-1">
+                <h3 class="text-base font-bold text-gray-800 group-hover:text-emerald-700">Profili individuali</h3>
+                <p class="text-sm text-gray-500 mt-0.5">Il linguaggio e accessibile anche a chi non ha nessun background statistico.</p>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <!-- Assumption -->
+      <div class="mb-12">
+        <h2 class="text-xl font-extrabold mb-4">Assumption</h2>
+        <ul class="space-y-3 text-[15px] text-gray-700 leading-relaxed">
+          <li>- Il target del report e un direttore medico, un PM pharma, un MSL: nessuno specialista di statistica.</li>
+          <li>- Nessun termine tecnico deve comparire nel report senza una spiegazione contestuale accanto.</li>
+          <li>- Il badge "dati simulati" appare solo quando le risposte provengono effettivamente dalla simulazione, non da medici reali. Con dati reali, il badge non deve essere visibile.</li>
+          <li>- La parola "item" non deve comparire mai nel report visibile all'utente finale.</li>
+          <li>- I valori numerici grezzi (SD, discriminazione, p-value) non devono comparire nel report base. Eventualmente, solo in un report approfondito separato, e comunque con etichette comprensibili.</li>
+        </ul>
+      </div>
+
+    </section>
+
+    <!-- Separatore tra sezioni -->
+    <div class="border-t-4 border-emerald-200 my-16"></div>
+
+    <!-- ============================================================ -->
+    <!-- FLUSSO 1 - Intestazione e contesto                            -->
+    <!-- ============================================================ -->
+    <section id="flusso1" class="scroll-mt-24">
+
+      <div class="border-b border-gray-200 pb-6 mb-8">
+        <span class="text-xs font-bold text-amber-600 uppercase tracking-wider">Flusso 1</span>
+        <h1 class="text-2xl font-extrabold tracking-tight mt-1">Intestazione e contesto</h1>
+        <p class="text-gray-500 mt-1">Il lettore capisce subito cosa sta guardando prima di vedere qualsiasi dato.</p>
+      </div>
+
+      <!-- Cosa fare -->
+      <div class="mb-10">
+        <h2 class="text-sm font-bold text-gray-400 uppercase tracking-wider mb-4">Cosa deve fare lo sviluppatore</h2>
+        <ul class="space-y-3 text-sm text-gray-700">
+          <li class="flex items-start gap-2">
+            <span class="text-emerald-500 font-bold mt-0.5">1.</span>
+            <span>Aggiungere un <strong>box introduttivo</strong> prima di qualsiasi dato, che spiega al lettore cosa mostra il report. Il testo deve spiegare che il report mostra come i partecipanti decidono di fronte agli scenari clinici, e che ci sono due tipi di analisi: Competenza (esiste una risposta corretta) e Preferenza (tutte le risposte sono difendibili).</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-emerald-500 font-bold mt-0.5">2.</span>
+            <span>Sostituire la sezione "In sintesi" con il titolo <strong>"Risultati principali"</strong> e aggiungere un sottotitolo che spiega brevemente cosa segue.</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-emerald-500 font-bold mt-0.5">3.</span>
+            <span>Sostituire la parola <strong>"item"</strong> con <strong>"domande"</strong> ovunque appaia nel report visibile al lettore.</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-emerald-500 font-bold mt-0.5">4.</span>
+            <span>Il <strong>badge "dati simulati"</strong> deve apparire solo quando le risposte che alimentano il report provengono dalla modalita simulazione o demo. Con risposte di medici reali, il badge non deve essere visibile.</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-emerald-500 font-bold mt-0.5">5.</span>
+            <span>Nella sezione dei risultati principali, i valori grezzi di SD devono essere sostituiti con <strong>descrizioni qualitative</strong>: "Gruppo diviso", "Alta variabilita", "Moderata variabilita".</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-emerald-500 font-bold mt-0.5">6.</span>
+            <span>Il testo di sintesi deve spiegare in linguaggio semplice quanti clinici hanno risposto, quanti gruppi emergono dall'analisi, e cosa significa per la progettazione della formazione.</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Condizione -->
+      <div class="mb-10">
+        <h2 class="text-sm font-bold text-gray-400 uppercase tracking-wider mb-4">Quando si applica</h2>
+        <p class="text-sm text-gray-700">Sempre - e la prima cosa che il lettore vede all'apertura del report.</p>
+      </div>
+
+    </section>
+
+    <!-- Separatore -->
+    <div class="border-t-4 border-emerald-200 my-16"></div>
+
+    <!-- ============================================================ -->
+    <!-- FLUSSO 2 - Tabelle e indicatori                               -->
+    <!-- ============================================================ -->
+    <section id="flusso2" class="scroll-mt-24">
+
+      <div class="border-b border-gray-200 pb-6 mb-8">
+        <span class="text-xs font-bold text-emerald-600 uppercase tracking-wider">Flusso 2</span>
+        <h1 class="text-2xl font-extrabold tracking-tight mt-1">Tabelle e indicatori</h1>
+        <p class="text-gray-500 mt-1">I numeri e le etichette hanno nomi comprensibili e si spiegano da soli. Sezioni: Competenza e Appendice.</p>
+      </div>
+
+      <!-- Cosa fare -->
+      <div class="mb-10">
+        <h2 class="text-sm font-bold text-gray-400 uppercase tracking-wider mb-4">Cosa deve fare lo sviluppatore</h2>
+        <ul class="space-y-3 text-sm text-gray-700">
+          <li class="flex items-start gap-2">
+            <span class="text-emerald-500 font-bold mt-0.5">1.</span>
+            <span>Nella tabella della sezione Competenza, rinominare la colonna <strong>"#Item"</strong> in <strong>"#"</strong> e aggiungere una colonna <strong>"Tipo"</strong> che mostra per intero "Competenza" o "Preferenza" (non abbreviazioni).</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-emerald-500 font-bold mt-0.5">2.</span>
+            <span>Sostituire la colonna <strong>"Discrim."</strong> con una colonna chiamata <strong>"Qualita domanda"</strong> che mostra pill qualitative: <strong>buona</strong>, <strong>debole</strong>, <strong>inadeguata</strong> al posto dei numeri.</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-emerald-500 font-bold mt-0.5">3.</span>
+            <span>Rinominare le pill di esito in tutta la tabella: <strong>"gap"</strong> diventa <strong>"Gap formativo"</strong>, <strong>"da rivedere"</strong> diventa <strong>"Domanda debole"</strong>, <strong>"ok"</strong> o <strong>"allineato"</strong> diventa <strong>"Allineato"</strong>.</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-emerald-500 font-bold mt-0.5">4.</span>
+            <span>La nota a fondo tabella sulle domande con bassa discriminazione deve usare linguaggio semplice: <strong>"Le domande segnalate come deboli probabilmente sono mal formulate"</strong>, senza termini tecnici.</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Guida alle pill -->
+      <div class="mb-10">
+        <h2 class="text-sm font-bold text-gray-400 uppercase tracking-wider mb-4">Significato delle nuove etichette</h2>
+        <div class="border border-gray-200 rounded-lg divide-y divide-gray-200">
+          <div class="flex items-center gap-3 p-4">
+            <span class="px-2.5 py-1 rounded-full bg-red-100 text-red-700 text-xs font-bold flex-shrink-0">Gap formativo</span>
+            <p class="text-sm text-gray-600">Il gruppo non conosce la risposta corretta. C'e un bisogno formativo concreto su questo argomento.</p>
+          </div>
+          <div class="flex items-center gap-3 p-4">
+            <span class="px-2.5 py-1 rounded-full bg-orange-100 text-orange-700 text-xs font-bold flex-shrink-0">Domanda debole</span>
+            <p class="text-sm text-gray-600">La domanda stessa e probabilmente mal costruita. Il dato non e affidabile.</p>
+          </div>
+          <div class="flex items-center gap-3 p-4">
+            <span class="px-2.5 py-1 rounded-full bg-emerald-100 text-emerald-700 text-xs font-bold flex-shrink-0">Allineato</span>
+            <p class="text-sm text-gray-600">Il gruppo risponde correttamente e la domanda funziona bene. Nessuna criticita.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Condizione -->
+      <div class="mb-10">
+        <h2 class="text-sm font-bold text-gray-400 uppercase tracking-wider mb-4">Quando si applica</h2>
+        <p class="text-sm text-gray-700">Nelle sezioni Competenza e Appendice del report.</p>
+      </div>
+
+    </section>
+
+    <!-- Separatore -->
+    <div class="border-t-4 border-emerald-200 my-16"></div>
+
+    <!-- ============================================================ -->
+    <!-- FLUSSO 3 - Grafici e visualizzazioni                          -->
+    <!-- ============================================================ -->
+    <section id="flusso3" class="scroll-mt-24">
+
+      <div class="border-b border-gray-200 pb-6 mb-8">
+        <span class="text-xs font-bold text-emerald-600 uppercase tracking-wider">Flusso 3</span>
+        <h1 class="text-2xl font-extrabold tracking-tight mt-1">Grafici e visualizzazioni</h1>
+        <p class="text-gray-500 mt-1">La legenda e visibile prima del grafico, i punti non si sovrappongono, il tooltip mostra il testo della domanda. Sezioni: Mappa di Preferenza e Crosscut.</p>
+      </div>
+
+      <!-- Cosa fare -->
+      <div class="mb-10">
+        <h2 class="text-sm font-bold text-gray-400 uppercase tracking-wider mb-4">Cosa deve fare lo sviluppatore</h2>
+        <ul class="space-y-3 text-sm text-gray-700">
+          <li class="flex items-start gap-2">
+            <span class="text-emerald-500 font-bold mt-0.5">1.</span>
+            <span>Nel grafico a dispersione (DotMap), aggiungere uno <strong>spostamento casuale minimo</strong> a ciascun punto, in modo che i punti che cadono sullo stesso valore non si sovrappongano in fila perfetta ma siano leggibili singolarmente.</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-emerald-500 font-bold mt-0.5">2.</span>
+            <span>Nel grafico a quadranti (Crosscut), spostare la legenda <strong>sopra il grafico</strong>, non sotto. Il lettore deve vedere la legenda prima di guardare il grafico, non dopo.</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-emerald-500 font-bold mt-0.5">3.</span>
+            <span>Le etichette della legenda devono essere in forma estesa e maiuscola: <strong>"Competenza"</strong> e <strong>"Preferenza"</strong> (non abbreviazioni o sigle).</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-emerald-500 font-bold mt-0.5">4.</span>
+            <span>Il tooltip che appare al passaggio del mouse su un punto del grafico deve mostrare il <strong>testo completo della domanda</strong>, non solo il codice breve (P1, C2, ecc.).</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Condizione -->
+      <div class="mb-10">
+        <h2 class="text-sm font-bold text-gray-400 uppercase tracking-wider mb-4">Quando si applica</h2>
+        <p class="text-sm text-gray-700">Nelle sezioni Mappa di Preferenza e Crosscut del report.</p>
+      </div>
+
+    </section>
+
+    <!-- Separatore -->
+    <div class="border-t-4 border-emerald-200 my-16"></div>
+
+    <!-- ============================================================ -->
+    <!-- FLUSSO 4 - Profili individuali                                -->
+    <!-- ============================================================ -->
+    <section id="flusso4" class="scroll-mt-24">
+
+      <div class="border-b border-gray-200 pb-6 mb-8">
+        <span class="text-xs font-bold text-emerald-600 uppercase tracking-wider">Flusso 4</span>
+        <h1 class="text-2xl font-extrabold tracking-tight mt-1">Profili individuali</h1>
+        <p class="text-gray-500 mt-1">Il linguaggio e accessibile anche a chi non ha nessun background statistico. Sezioni: Profilo Individuale e Appendice Metodo.</p>
+      </div>
+
+      <!-- Cosa fare -->
+      <div class="mb-10">
+        <h2 class="text-sm font-bold text-gray-400 uppercase tracking-wider mb-4">Cosa deve fare lo sviluppatore</h2>
+        <ul class="space-y-3 text-sm text-gray-700">
+          <li class="flex items-start gap-2">
+            <span class="text-emerald-500 font-bold mt-0.5">1.</span>
+            <span>Sostituire il testo introduttivo del profilo individuale - che attualmente parla di "vettore sugli assi di preferenza" - con una frase comprensibile: <strong>"Come decide questo partecipante rispetto al gruppo: su quali dimensioni e allineato e dove si distingue."</strong></span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-emerald-500 font-bold mt-0.5">2.</span>
+            <span>Rinominare l'indicatore <strong>"Coerenza"</strong> in <strong>"Coerenza interna"</strong> e aggiungere un tooltip che spiega in linguaggio semplice cosa significa: se il partecipante ha risposto in modo consistente tra le varie domande, o se le sue risposte variano senza un filo logico evidente.</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-emerald-500 font-bold mt-0.5">3.</span>
+            <span>La nota che appare quando la coerenza interna e bassa deve dire: <strong>"Le risposte di questo partecipante sono poco consistenti tra loro"</strong>, non il testo tecnico attuale sul vettore individuale.</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-emerald-500 font-bold mt-0.5">4.</span>
+            <span>Nella sezione Metodo dell'appendice, rinominare i titoli tecnici con titoli descrittivi: <strong>"Come vengono classificate le domande"</strong> e <strong>"Come si leggono gli assi di preferenza"</strong>.</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Condizione -->
+      <div class="mb-10">
+        <h2 class="text-sm font-bold text-gray-400 uppercase tracking-wider mb-4">Quando si applica</h2>
+        <p class="text-sm text-gray-700">Nelle sezioni Profilo Individuale e Appendice Metodo del report.</p>
+      </div>
+
+    </section>
+
+    <!-- Separatore -->
+    <div class="border-t-4 border-emerald-200 my-16"></div>
+
+    <!-- ============================================================ -->
+    <!-- CRITERI DI ACCETTAZIONE                                       -->
+    <!-- ============================================================ -->
+    <section class="mb-16">
+      <h2 class="text-xl font-extrabold mb-6">Criteri di accettazione</h2>
+      <ul class="space-y-3 text-[15px] text-gray-700 leading-relaxed">
+        <li>- La parola "item" non compare mai nel report visibile al lettore</li>
+        <li>- Nessun valore numerico SD e visibile nel report base</li>
+        <li>- Il badge "dati simulati" appare solo quando i dati provengono effettivamente dalla simulazione</li>
+        <li>- Un box introduttivo spiega cosa mostra il report prima di qualsiasi dato</li>
+        <li>- Le pill di esito mostrano "Gap formativo", "Domanda debole", "Allineato"</li>
+        <li>- La colonna discriminazione e sostituita con "Qualita domanda" con pill qualitativa</li>
+        <li>- I punti nello scatter non sono allineati in fila</li>
+        <li>- La legenda del grafico a quadranti e posizionata sopra il grafico</li>
+        <li>- Il profilo individuale usa linguaggio accessibile, senza riferimenti a vettori o notazioni statistiche</li>
+        <li>- I titoli della sezione Metodo descrivono il contenuto in modo comprensibile</li>
+      </ul>
+    </section>
+
+  </div>
+
+  <!-- ===== SCROLL SPY ===== -->
+  <script>
+    var sections = document.querySelectorAll('section[id]');
+    var navLinks = document.querySelectorAll('.nav-link');
+
+    function updateNav() {
+      var scrollY = window.scrollY + 120;
+      var current = 'panoramica';
+
+      sections.forEach(function(section) {
+        if (scrollY >= section.offsetTop) {
+          current = section.getAttribute('id');
+        }
+      });
+
+      navLinks.forEach(function(link) {
+        link.classList.remove('active');
+        if (link.getAttribute('data-section') === current) {
+          link.classList.add('active');
+        }
+      });
+    }
+
+    window.addEventListener('scroll', updateNav);
+    updateNav();
+  </script>
+
+</body>
+</html>

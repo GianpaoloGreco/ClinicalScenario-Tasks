@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task 011 - Generazione domande standardizzata</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+    body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
+    .nav-link { transition: all 0.2s; }
+    .nav-link.active { color: #047857; background: #ecfdf5; font-weight: 700; }
+  </style>
+</head>
+<body class="min-h-screen bg-white text-gray-900">
+
+  <!-- ===== BARRA NAVIGAZIONE STICKY ===== -->
+  <div class="sticky top-0 z-50 bg-white border-b-2 border-gray-200 shadow-sm">
+    <div class="max-w-5xl mx-auto flex">
+      <!-- Blocco TASK -->
+      <div class="flex-1 border-r-2 border-gray-200">
+        <div class="px-4 py-1.5 text-[10px] font-bold text-gray-400 uppercase tracking-widest bg-gray-50 border-b border-gray-100">Documentazione Task</div>
+        <div class="flex divide-x divide-gray-100">
+          <a href="#panoramica" class="nav-link flex-1 px-3 py-2.5 text-xs font-semibold text-gray-500 text-center hover:bg-gray-50" data-section="panoramica">Panoramica</a>
+          <a href="#flusso1" class="nav-link flex-1 px-3 py-2.5 text-xs font-semibold text-gray-500 text-center hover:bg-gray-50" data-section="flusso1">Flusso 1</a>
+          <a href="#flusso2" class="nav-link flex-1 px-3 py-2.5 text-xs font-semibold text-gray-500 text-center hover:bg-gray-50" data-section="flusso2">Flusso 2</a>
+          <a href="#flusso3" class="nav-link flex-1 px-3 py-2.5 text-xs font-semibold text-gray-500 text-center hover:bg-gray-50" data-section="flusso3">Flusso 3</a>
+        </div>
+      </div>
+      <!-- Blocco MOCKUP -->
+      <div class="w-56 flex-shrink-0" style="background-color: #0f6b62;">
+        <div class="px-4 py-1.5 text-[10px] font-bold text-white uppercase tracking-widest border-b" style="border-color: #0a534b;">Mockup live</div>
+        <div class="flex items-center justify-center h-[calc(100%-28px)] px-4 py-2.5">
+          <span class="text-xs text-white opacity-70 italic">Nessun mockup disponibile</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="max-w-3xl mx-auto px-6 py-12">
+
+    <!-- ============================================================ -->
+    <!-- PANORAMICA                                                    -->
+    <!-- ============================================================ -->
+    <section id="panoramica" class="scroll-mt-24">
+
+      <!-- Header -->
+      <div class="border-b border-gray-200 pb-8 mb-10">
+        <span class="px-2.5 py-1 rounded text-xs font-bold" style="background-color: #e6f4f3; color: #0f6b62;">TASK 011</span>
+        <h1 class="text-3xl font-extrabold tracking-tight mt-3 mb-1">Generazione domande standardizzata</h1>
+        <p class="text-gray-400 text-sm">Priorita P0 - Size L - Feature</p>
+      </div>
+
+      <!-- Descrizione -->
+      <div class="mb-12">
+        <h2 class="text-xl font-extrabold mb-4">Descrizione</h2>
+        <div class="text-[15px] text-gray-700 leading-relaxed space-y-4">
+          <p>Oggi quando un operatore crea un quiz da un PDF medico, puo scegliere liberamente quante domande generare e il livello di difficolta. Questo crea problemi concreti: oltre le 20 domande l'AI inizia a generare duplicati o domande troppo simili, i report di analisi non sono stati testati con numeri arbitrari, e c'e il rischio concreto di richieste di supporto continue. Un audit sulla pipeline ha confermato questi breakpoint.</p>
+          <p>La motivazione e anche di business: <strong>noi non possiamo fornire un servizio di assistenza e manutenzione su configurazioni libere</strong>. Se il cliente vuole farsi le domande a mano e gestire i report da solo, puo farlo. Ma se vuole il flusso automatico con il report, il numero di domande deve essere standard. Questo elimina un'intera classe di problemi prima che nascano.</p>
+          <p>La soluzione e semplice: l'operatore sceglie solo tra <strong>3 preset (5, 10 o 15 domande)</strong>. L'AI gestisce tutto il resto in autonomia - il mix di difficolta, il bilanciamento tra domande di competenza (c'e una risposta corretta secondo le linee guida) e domande di preferenza (tutte le risposte sono difendibili, misurano le scelte cliniche del medico). L'operatore non deve capire la differenza; il sistema instrada automaticamente.</p>
+          <p>Attenzione: <strong>questo non e un esame</strong>. Le domande di preferenza non hanno risposta giusta - sono come chiedere "preferisci il gelato rosso o il gelato blu?". Servono a mappare come ogni clinico affronta le stesse decisioni. Come queste domande vengono generate e il punto chiave: devono seguire un formato preciso (risposta corretta per competenza, assi con pesi per preferenza) altrimenti l'intera pipeline di analisi si interrompe.</p>
+        </div>
+      </div>
+
+      <!-- Obiettivo -->
+      <div class="mb-12">
+        <h2 class="text-xl font-extrabold mb-4">Obiettivo</h2>
+        <div class="bg-emerald-50 border border-emerald-200 rounded-lg p-5">
+          <p class="text-[15px] text-gray-800 leading-relaxed">L'operatore crea un quiz scegliendo 5, 10 o 15 domande da un menu. L'AI genera il mix giusto in autonomia. Il formato di output e compatibile con il motore di analisi senza interventi manuali.</p>
+        </div>
+      </div>
+
+      <!-- Flusso utente (overview) -->
+      <div class="mb-12">
+        <h2 class="text-xl font-extrabold mb-4">Flusso utente</h2>
+        <p class="text-sm text-gray-500 mb-5">Questo e il percorso che fa l'operatore dall'inizio alla fine. Clicca su ogni step per andare alla sezione con i dettagli.</p>
+        <div class="space-y-3">
+          <a href="#flusso1" class="block p-5 border-2 border-gray-200 rounded-lg hover:border-emerald-400 transition-all group">
+            <div class="flex items-center gap-4">
+              <div class="w-10 h-10 rounded-full bg-amber-100 text-amber-700 font-bold text-sm flex items-center justify-center flex-shrink-0">1</div>
+              <div class="flex-1">
+                <h3 class="text-base font-bold text-gray-800 group-hover:text-emerald-700">L'operatore crea un nuovo quiz</h3>
+                <p class="text-sm text-gray-500 mt-0.5">Sceglie il documento sorgente e il numero di domande (5, 10, o 15).</p>
+              </div>
+            </div>
+          </a>
+          <div class="flex justify-center"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-gray-300"><path d="m6 9 6 6 6-6"></path></svg></div>
+          <a href="#flusso2" class="block p-5 border-2 border-gray-200 rounded-lg hover:border-emerald-400 transition-all group">
+            <div class="flex items-center gap-4">
+              <div class="w-10 h-10 rounded-full bg-emerald-100 text-emerald-700 font-bold text-sm flex items-center justify-center flex-shrink-0">2</div>
+              <div class="flex-1">
+                <h3 class="text-base font-bold text-gray-800 group-hover:text-emerald-700">L'AI genera le domande</h3>
+                <p class="text-sm text-gray-500 mt-0.5">Il sistema analizza il documento e produce domande bilanciate tra competenza e preferenza.</p>
+              </div>
+            </div>
+          </a>
+          <div class="flex justify-center"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-gray-300"><path d="m6 9 6 6 6-6"></path></svg></div>
+          <a href="#flusso3" class="block p-5 border-2 border-gray-200 rounded-lg hover:border-emerald-400 transition-all group">
+            <div class="flex items-center gap-4">
+              <div class="w-10 h-10 rounded-full bg-emerald-100 text-emerald-700 font-bold text-sm flex items-center justify-center flex-shrink-0">3</div>
+              <div class="flex-1">
+                <h3 class="text-base font-bold text-gray-800 group-hover:text-emerald-700">Le domande sono pronte per la somministrazione</h3>
+                <p class="text-sm text-gray-500 mt-0.5">Ogni domanda ha il formato corretto per alimentare il report di analisi.</p>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <!-- Assumption -->
+      <div class="mb-12">
+        <h2 class="text-xl font-extrabold mb-4">Assumption</h2>
+        <ul class="space-y-3 text-[15px] text-gray-700 leading-relaxed">
+          <li>- Il numero di domande e fisso: 5, 10 o 15. Non c'e campo libero.</li>
+          <li>- L'AI decide autonomamente il mix di difficolta (facile, media, difficile) e il tipo di domanda (competenza vs preferenza).</li>
+          <li>- Il tipo di domanda dipende dalla solidita dell'evidenza scientifica nel documento: dove c'e una risposta supportata dalle linee guida, la domanda e di competenza. Dove le opzioni sono tutte difendibili, e di preferenza.</li>
+          <li>- Le domande di preferenza non hanno risposta giusta. Misurano l'orientamento del clinico, non la sua preparazione.</li>
+          <li>- Se il documento non ha abbastanza punti di decisione per generare il numero richiesto, il sistema lo segnala all'operatore.</li>
+        </ul>
+      </div>
+
+    </section>
+
+    <!-- Separatore tra sezioni -->
+    <div class="my-16" style="border-top: 4px solid #e6f4f3;"></div>
+
+    <!-- ============================================================ -->
+    <!-- FLUSSO 1 - L'operatore crea un nuovo quiz                    -->
+    <!-- ============================================================ -->
+    <section id="flusso1" class="scroll-mt-24">
+
+      <div class="border-b border-gray-200 pb-6 mb-8">
+        <span class="text-xs font-bold uppercase tracking-wider" style="color: #0f6b62;">Flusso 1</span>
+        <h1 class="text-2xl font-extrabold tracking-tight mt-1">L'operatore crea un nuovo quiz</h1>
+        <p class="text-gray-500 mt-1">Pagina di creazione quiz: l'operatore sceglie il documento e il numero di domande.</p>
+      </div>
+
+      <!-- Cosa fare -->
+      <div class="mb-10">
+        <h2 class="text-sm font-bold text-gray-400 uppercase tracking-wider mb-4">Cosa deve fare lo sviluppatore</h2>
+        <ul class="space-y-3 text-sm text-gray-700">
+          <li class="flex items-start gap-2">
+            <span class="font-bold mt-0.5" style="color: #0f6b62;">1.</span>
+            <span>Sostituire il campo libero per il numero di domande con un menu a tendina che mostra tre opzioni: <strong>"5 domande (rapido)"</strong>, <strong>"10 domande (standard)"</strong>, <strong>"15 domande (approfondito)"</strong>. Il default e 10.</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="font-bold mt-0.5" style="color: #0f6b62;">2.</span>
+            <span>Rimuovere dall'interfaccia qualsiasi selettore di difficolta o tipo di domanda. L'operatore non deve vedere queste opzioni.</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="font-bold mt-0.5" style="color: #0f6b62;">3.</span>
+            <span>Il numero selezionato viene passato al passaggio di generazione.</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Condizione -->
+      <div class="mb-10">
+        <h2 class="text-sm font-bold text-gray-400 uppercase tracking-wider mb-4">Quando mostrare questa vista</h2>
+        <p class="text-sm text-gray-700">Quando l'operatore e sulla pagina di creazione quiz con un documento gia caricato.</p>
+      </div>
+
+    </section>
+
+    <!-- Separatore -->
+    <div class="my-16" style="border-top: 4px solid #e6f4f3;"></div>
+
+    <!-- ============================================================ -->
+    <!-- FLUSSO 2 - L'AI genera le domande                            -->
+    <!-- ============================================================ -->
+    <section id="flusso2" class="scroll-mt-24">
+
+      <div class="border-b border-gray-200 pb-6 mb-8">
+        <span class="text-xs font-bold uppercase tracking-wider" style="color: #0f6b62;">Flusso 2</span>
+        <h1 class="text-2xl font-extrabold tracking-tight mt-1">L'AI genera le domande</h1>
+        <p class="text-gray-500 mt-1">Processo in background: il sistema produce il mix di domande nel formato corretto.</p>
+      </div>
+
+      <!-- Cosa fare -->
+      <div class="mb-10">
+        <h2 class="text-sm font-bold text-gray-400 uppercase tracking-wider mb-4">Cosa deve fare lo sviluppatore</h2>
+        <ul class="space-y-3 text-sm text-gray-700">
+          <li class="flex items-start gap-2">
+            <span class="font-bold mt-0.5" style="color: #0f6b62;">1.</span>
+            <span>Il processo di generazione deve produrre domande in due classi: <strong>competenza</strong> (con una risposta corretta segnalata) e <strong>preferenza</strong> (con ogni risposta collegata a una dimensione di preferenza e un peso di direzione).</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="font-bold mt-0.5" style="color: #0f6b62;">2.</span>
+            <span>Il sistema non deve consentire formati misti: una domanda di competenza non ha mai pesi di preferenza, una domanda di preferenza non ha mai una risposta corretta.</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="font-bold mt-0.5" style="color: #0f6b62;">3.</span>
+            <span>Dopo la generazione, arricchire ogni domanda con metadati provenienti dal catalogo del documento (specialita, argomento, solidita dell'evidenza).</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Condizione -->
+      <div class="mb-10">
+        <h2 class="text-sm font-bold text-gray-400 uppercase tracking-wider mb-4">Quando mostrare questa vista</h2>
+        <p class="text-sm text-gray-700">Questo e un processo in background. L'operatore vede un indicatore di caricamento/avanzamento.</p>
+      </div>
+
+    </section>
+
+    <!-- Separatore -->
+    <div class="my-16" style="border-top: 4px solid #e6f4f3;"></div>
+
+    <!-- ============================================================ -->
+    <!-- FLUSSO 3 - Le domande sono pronte                            -->
+    <!-- ============================================================ -->
+    <section id="flusso3" class="scroll-mt-24">
+
+      <div class="border-b border-gray-200 pb-6 mb-8">
+        <span class="text-xs font-bold uppercase tracking-wider" style="color: #0f6b62;">Flusso 3</span>
+        <h1 class="text-2xl font-extrabold tracking-tight mt-1">Le domande sono pronte per la somministrazione</h1>
+        <p class="text-gray-500 mt-1">L'operatore puo verificare le domande prima di pubblicare il quiz.</p>
+      </div>
+
+      <!-- Cosa fare -->
+      <div class="mb-10">
+        <h2 class="text-sm font-bold text-gray-400 uppercase tracking-wider mb-4">Cosa deve fare lo sviluppatore</h2>
+        <ul class="space-y-3 text-sm text-gray-700">
+          <li class="flex items-start gap-2">
+            <span class="font-bold mt-0.5" style="color: #0f6b62;">1.</span>
+            <span>Salvare le domande generate con tutti i campi richiesti dal motore di analisi.</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="font-bold mt-0.5" style="color: #0f6b62;">2.</span>
+            <span>L'operatore puo visualizzare in anteprima le domande prima di pubblicare il quiz.</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="font-bold mt-0.5" style="color: #0f6b62;">3.</span>
+            <span>Ogni domanda mostra il suo tipo (competenza o preferenza) nell'anteprima.</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Condizione -->
+      <div class="mb-10">
+        <h2 class="text-sm font-bold text-gray-400 uppercase tracking-wider mb-4">Quando mostrare questa vista</h2>
+        <p class="text-sm text-gray-700">Dopo che la generazione si completa con successo.</p>
+      </div>
+
+    </section>
+
+    <!-- Separatore -->
+    <div class="my-16" style="border-top: 4px solid #e6f4f3;"></div>
+
+    <!-- ============================================================ -->
+    <!-- CRITERI DI ACCETTAZIONE                                       -->
+    <!-- ============================================================ -->
+    <section class="mb-16">
+      <h2 class="text-xl font-extrabold mb-6">Criteri di accettazione</h2>
+      <ul class="space-y-3 text-[15px] text-gray-700 leading-relaxed">
+        <li>- L'interfaccia mostra solo 3 opzioni: 5, 10, 15 domande.</li>
+        <li>- Nessun campo difficolta o tipo domanda visibile all'operatore.</li>
+        <li>- Le domande generate hanno il formato corretto per l'analisi (competenza con risposta corretta, preferenza con assi e pesi).</li>
+        <li>- Il sistema segnala se non riesce a generare il numero richiesto di domande dal documento.</li>
+        <li>- Le domande sono immediatamente utilizzabili per la somministrazione e il report.</li>
+      </ul>
+    </section>
+
+  </div>
+
+  <!-- ===== SCROLL SPY ===== -->
+  <script>
+    var sections = document.querySelectorAll('section[id]');
+    var navLinks = document.querySelectorAll('.nav-link');
+
+    function updateNav() {
+      var scrollY = window.scrollY + 120;
+      var current = 'panoramica';
+
+      sections.forEach(function(section) {
+        if (scrollY >= section.offsetTop) {
+          current = section.getAttribute('id');
+        }
+      });
+
+      navLinks.forEach(function(link) {
+        link.classList.remove('active');
+        if (link.getAttribute('data-section') === current) {
+          link.classList.add('active');
+        }
+      });
+    }
+
+    window.addEventListener('scroll', updateNav);
+    updateNav();
+  </script>
+
+</body>
+</html>

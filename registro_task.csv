@@ -1,0 +1,18 @@
+id,tipo,area,titolo,stato,priorita,size
+001,chore,scaffold,Scaffold Next.js 14 + dipendenze + struttura cartelle,done,P1,M
+002,feature,schema,Tipi TypeScript da JSON schemas + loader vocabolari,done,P1,M
+003,feature,database,SQLite schema + funzioni CRUD documents/questions/responses,done,P1,M
+004,feature,pipeline,Upload PDF API + pagina operatore,done,P1,M
+005,feature,pipeline,Catalog + Generate API con Anthropic SDK,done,P1,L
+006,feature,respondent,Pagina somministrazione quiz + API risposte,done,P1,M
+007,feature,bi,Engine BI competenza: % corrette + difficoltà + discriminazione + distrattori,done,P1,M
+008,feature,bi,Engine BI preferenza: assi + k-means cluster + entity adoption + crosscut,done,P1,L
+009,feature,dashboard,Dashboard API + pagina risultati BI,done,P1,M
+010,feature,test,Seed domande campione + simulazione 3 medici + verifica BI,done,P1,L
+011,feature,pipeline,Standardizza generazione domande AI (preset 5/10/15 + formato BI-ready),todo,P0,L
+012,feature,pipeline,Integra normalizzazione PDF (Markdown + catalog JSON dinamico),todo,P1,M
+013,fix,report,Fix comunicazione report BI (linguaggio comprensibile + UX),todo,P0,M
+014,feature,bi,Integra engine BI report backend (competenza + preferenza + crosscut),todo,P1,L
+015,feature,dashboard,Dashboard frontend BI (report sintesi + approfondito + export PDF),todo,P1,L
+016,feature,frontend,Landing page ClinicalScenario (da wireframe),todo,P2,M
+017,feature,export,Export Excel arricchito (5 fogli BI + risposte con profilo),todo,P1,S

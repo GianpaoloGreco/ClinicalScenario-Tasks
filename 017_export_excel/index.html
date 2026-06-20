@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task 017 - Export Excel arricchito</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+    body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
+    .nav-link { transition: all 0.2s; }
+    .nav-link.active { color: #047857; background: #ecfdf5; font-weight: 700; }
+  </style>
+</head>
+<body class="min-h-screen bg-white text-gray-900">
+
+  <!-- ===== BARRA NAVIGAZIONE STICKY ===== -->
+  <div class="sticky top-0 z-50 bg-white border-b-2 border-gray-200 shadow-sm">
+    <div class="max-w-5xl mx-auto flex">
+      <!-- Blocco TASK -->
+      <div class="flex-1 border-r-2 border-gray-200">
+        <div class="px-4 py-1.5 text-[10px] font-bold text-gray-400 uppercase tracking-widest bg-gray-50 border-b border-gray-100">Documentazione Task</div>
+        <div class="flex divide-x divide-gray-100">
+          <a href="#panoramica" class="nav-link flex-1 px-3 py-2.5 text-xs font-semibold text-gray-500 text-center hover:bg-gray-50" data-section="panoramica">Panoramica</a>
+          <a href="#flusso1" class="nav-link flex-1 px-3 py-2.5 text-xs font-semibold text-gray-500 text-center hover:bg-gray-50" data-section="flusso1">Flusso 1</a>
+          <a href="#flusso2" class="nav-link flex-1 px-3 py-2.5 text-xs font-semibold text-gray-500 text-center hover:bg-gray-50" data-section="flusso2">Flusso 2</a>
+          <a href="#flusso3" class="nav-link flex-1 px-3 py-2.5 text-xs font-semibold text-gray-500 text-center hover:bg-gray-50" data-section="flusso3">Flusso 3</a>
+        </div>
+      </div>
+      <!-- Nessun mockup per questo task -->
+      <div class="w-56 flex-shrink-0 bg-gray-100">
+        <div class="px-4 py-1.5 text-[10px] font-bold text-gray-400 uppercase tracking-widest border-b border-gray-200">Mockup live</div>
+        <div class="flex items-center justify-center h-10">
+          <span class="text-xs text-gray-400 italic">Nessun mockup per questo task</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="max-w-3xl mx-auto px-6 py-12">
+
+    <!-- ============================================================ -->
+    <!-- PANORAMICA                                                    -->
+    <!-- ============================================================ -->
+    <section id="panoramica" class="scroll-mt-24">
+
+      <!-- Header -->
+      <div class="border-b border-gray-200 pb-8 mb-10">
+        <div class="flex items-center gap-2 flex-wrap">
+          <span class="px-2.5 py-1 rounded bg-emerald-100 text-emerald-700 text-xs font-bold">TASK 017</span>
+          <span class="px-2.5 py-1 rounded bg-red-100 text-red-700 text-xs font-bold">P1</span>
+          <span class="px-2.5 py-1 rounded bg-blue-100 text-blue-700 text-xs font-bold">Size S</span>
+          <span class="px-2.5 py-1 rounded bg-purple-100 text-purple-700 text-xs font-bold">Feature</span>
+        </div>
+        <h1 class="text-3xl font-extrabold tracking-tight mt-3 mb-1">Export Excel arricchito</h1>
+        <p class="text-gray-400 text-sm">Dipende da: Task 014</p>
+      </div>
+
+      <!-- Descrizione -->
+      <div class="mb-12">
+        <h2 class="text-xl font-extrabold mb-4">Descrizione</h2>
+        <div class="text-[15px] text-gray-700 leading-relaxed space-y-4">
+          <p>L'export Excel attuale e troppo scarno. Quando un cliente lo apre senza avere il report visuale a fianco, si trova davanti a nomi di colonna incomprensibili e numeri senza contesto.</p>
+          <p>Il nuovo export deve essere <strong>autoesplicativo</strong>: nomi di colonna chiari in italiano, etichette qualitative al posto di numeri grezzi, e un foglio aggiuntivo dedicato ai profili decisionali che nella versione attuale manca completamente.</p>
+          <p>Ci sono due export distinti con scopi diversi. Il <strong>Report BI</strong> (5 fogli) e il documento di analisi completo - quello che il committente condivide con il management o archivia come output del progetto. Questo e l'export nuovo da costruire. Il <strong>Documento Risposte</strong> (2 fogli) e il dettaglio risposta per risposta di ogni medico - utile per chi deve fare un follow-up individuale. Una versione base dell'export risposte esiste gia (singolo quiz, risposte per dottore): va arricchita con il profilo decisionale di appartenenza e le etichette comprensibili.</p>
+        </div>
+      </div>
+
+      <!-- Obiettivo -->
+      <div class="mb-12">
+        <h2 class="text-xl font-extrabold mb-4">Obiettivo</h2>
+        <div class="bg-emerald-50 border border-emerald-200 rounded-lg p-5">
+          <p class="text-[15px] text-gray-800 leading-relaxed">Un cliente apre il file Excel e capisce i dati senza avere bisogno del report visuale come riferimento.</p>
+        </div>
+      </div>
+
+      <!-- Flusso utente (overview) -->
+      <div class="mb-12">
+        <h2 class="text-xl font-extrabold mb-4">Flusso utente</h2>
+        <p class="text-sm text-gray-500 mb-5">Il percorso che fa l'operatore per scaricare i dati.</p>
+        <div class="space-y-3">
+          <a href="#flusso1" class="block p-5 border-2 border-gray-200 rounded-lg hover:border-emerald-400 transition-all group">
+            <div class="flex items-center gap-4">
+              <div class="w-10 h-10 rounded-full bg-amber-100 text-amber-700 font-bold text-sm flex items-center justify-center flex-shrink-0">1</div>
+              <div class="flex-1">
+                <h3 class="text-base font-bold text-gray-800 group-hover:text-emerald-700">L'operatore vuole esportare i dati</h3>
+                <p class="text-sm text-gray-500 mt-0.5">Dalla dashboard, vede due bottoni di download distinti con nomi chiari.</p>
+              </div>
+            </div>
+          </a>
+          <div class="flex justify-center"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-gray-300"><path d="m6 9 6 6 6-6"></path></svg></div>
+          <a href="#flusso2" class="block p-5 border-2 border-gray-200 rounded-lg hover:border-emerald-400 transition-all group">
+            <div class="flex items-center gap-4">
+              <div class="w-10 h-10 rounded-full bg-emerald-100 text-emerald-700 font-bold text-sm flex items-center justify-center flex-shrink-0">2</div>
+              <div class="flex-1">
+                <h3 class="text-base font-bold text-gray-800 group-hover:text-emerald-700">Scarica il Report BI</h3>
+                <p class="text-sm text-gray-500 mt-0.5">Excel con 5 fogli: riepilogo, preferenze, competenza, profili decisionali, crosscut.</p>
+              </div>
+            </div>
+          </a>
+          <div class="flex justify-center"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-gray-300"><path d="m6 9 6 6 6-6"></path></svg></div>
+          <a href="#flusso3" class="block p-5 border-2 border-gray-200 rounded-lg hover:border-emerald-400 transition-all group">
+            <div class="flex items-center gap-4">
+              <div class="w-10 h-10 rounded-full bg-emerald-100 text-emerald-700 font-bold text-sm flex items-center justify-center flex-shrink-0">3</div>
+              <div class="flex-1">
+                <h3 class="text-base font-bold text-gray-800 group-hover:text-emerald-700">Scarica le Risposte</h3>
+                <p class="text-sm text-gray-500 mt-0.5">Excel con 2 fogli: riepilogo e dettaglio risposta per risposta per ogni medico.</p>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <!-- Assumption -->
+      <div class="mb-12">
+        <h2 class="text-xl font-extrabold mb-4">Assumption</h2>
+        <ul class="space-y-3 text-[15px] text-gray-700 leading-relaxed">
+          <li>- Nessun valore tecnico grezzo nell'export: niente sigle statistiche, niente indici numerici senza spiegazione - solo etichette comprensibili.</li>
+          <li>- I nomi di colonna sono in italiano e descrivono il contenuto, non codici o abbreviazioni.</li>
+          <li>- Gli esiti sono testuali e comprensibili: "Gap formativo", "Domanda debole", "Allineato" - non codici numerici.</li>
+          <li>- Il foglio Profili e nuovo rispetto alla versione attuale: mostra i profili decisionali con percentuale del campione e descrizione.</li>
+          <li>- L'export Risposte include il profilo decisionale di appartenenza di ogni partecipante.</li>
+          <li>- I file devono aprirsi correttamente sia in Excel che in Google Sheets, senza errori di formattazione.</li>
+        </ul>
+      </div>
+
+    </section>
+
+    <!-- Separatore tra sezioni -->
+    <div class="border-t-4 border-emerald-200 my-16"></div>
+
+    <!-- ============================================================ -->
+    <!-- FLUSSO 1 - Bottoni download                                   -->
+    <!-- ============================================================ -->
+    <section id="flusso1" class="scroll-mt-24">
+
+      <div class="border-b border-gray-200 pb-6 mb-8">
+        <span class="text-xs font-bold text-amber-600 uppercase tracking-wider">Flusso 1</span>
+        <h1 class="text-2xl font-extrabold tracking-tight mt-1">Bottoni di download</h1>
+        <p class="text-gray-500 mt-1">Come l'operatore accede ai due export dalla dashboard.</p>
+      </div>
+
+      <div class="mb-10">
+        <h2 class="text-sm font-bold text-gray-400 uppercase tracking-wider mb-4">Cosa deve fare lo sviluppatore</h2>
+        <ul class="space-y-3 text-sm text-gray-700">
+          <li class="flex items-start gap-2">
+            <span class="text-emerald-500 font-bold mt-0.5">1.</span>
+            <span>Aggiungere nella sidebar o nell'intestazione del report due bottoni di download con nomi distinti: <strong>"Scarica Report BI"</strong> e <strong>"Scarica Risposte"</strong>.</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-emerald-500 font-bold mt-0.5">2.</span>
+            <span>I bottoni devono essere visibili in qualsiasi momento durante la consultazione del report, senza dover navigare in una sezione specifica.</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-emerald-500 font-bold mt-0.5">3.</span>
+            <span>Click su un bottone avvia il download del file corrispondente senza aprire pagine intermedie.</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="mb-10">
+        <h2 class="text-sm font-bold text-gray-400 uppercase tracking-wider mb-4">Quando</h2>
+        <p class="text-sm text-gray-700">Sempre visibili nella pagina del report, in qualsiasi sezione si trovi l'operatore.</p>
+      </div>
+
+    </section>
+
+    <!-- Separatore -->
+    <div class="border-t-4 border-emerald-200 my-16"></div>
+
+    <!-- ============================================================ -->
+    <!-- FLUSSO 2 - Export Report BI                                   -->
+    <!-- ============================================================ -->
+    <section id="flusso2" class="scroll-mt-24">
+
+      <div class="border-b border-gray-200 pb-6 mb-8">
+        <span class="text-xs font-bold text-emerald-600 uppercase tracking-wider">Flusso 2</span>
+        <h1 class="text-2xl font-extrabold tracking-tight mt-1">Export Report BI</h1>
+        <p class="text-gray-500 mt-1">Struttura e contenuto dei 5 fogli del documento di analisi.</p>
+      </div>
+
+      <div class="mb-10">
+        <h2 class="text-sm font-bold text-gray-400 uppercase tracking-wider mb-4">Struttura dei 5 fogli</h2>
+        <div class="border border-gray-200 rounded-lg divide-y divide-gray-200">
+          <div class="flex items-start gap-3 p-4">
+            <span class="w-6 h-6 rounded-full bg-gray-100 text-gray-600 font-bold text-xs flex items-center justify-center flex-shrink-0">1</span>
+            <div>
+              <p class="text-sm font-semibold text-gray-700">Riepilogo</p>
+              <p class="text-xs text-gray-400">Titolo del quiz, data di somministrazione, numero di partecipanti, punteggio medio di competenza del gruppo, orientamento medio per ogni asse di preferenza.</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-3 p-4">
+            <span class="w-6 h-6 rounded-full bg-gray-100 text-gray-600 font-bold text-xs flex items-center justify-center flex-shrink-0">2</span>
+            <div>
+              <p class="text-sm font-semibold text-gray-700">Preferenze</p>
+              <p class="text-xs text-gray-400">Per ogni asse: nome dell'asse, etichette dei due poli, orientamento medio del gruppo (espresso come etichetta, non numero), ampiezza della dispersione come intervallo comprensibile - non come sigla statistica.</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-3 p-4">
+            <span class="w-6 h-6 rounded-full bg-gray-100 text-gray-600 font-bold text-xs flex items-center justify-center flex-shrink-0">3</span>
+            <div>
+              <p class="text-sm font-semibold text-gray-700">Competenza</p>
+              <p class="text-xs text-gray-400">Per ogni domanda: numero, argomento, percentuale di risposte corrette, esito testuale ("Gap formativo" / "Domanda debole" / "Allineato"), risposta sbagliata piu scelta.</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-3 p-4">
+            <span class="w-6 h-6 rounded-full bg-emerald-100 text-emerald-700 font-bold text-xs flex items-center justify-center flex-shrink-0">4</span>
+            <div>
+              <p class="text-sm font-semibold text-gray-700">Profili <span class="font-normal text-emerald-600">(foglio nuovo)</span></p>
+              <p class="text-xs text-gray-400">Per ogni profilo decisionale: nome del profilo, numero di partecipanti, percentuale sul totale, descrizione del comportamento tipico, valori di orientamento sugli assi principali.</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-3 p-4">
+            <span class="w-6 h-6 rounded-full bg-gray-100 text-gray-600 font-bold text-xs flex items-center justify-center flex-shrink-0">5</span>
+            <div>
+              <p class="text-sm font-semibold text-gray-700">Crosscut</p>
+              <p class="text-xs text-gray-400">Per ogni domanda: numero, tipo (preferenza o competenza), argomento, forza dell'evidenza, quadrante di appartenenza espresso come testo ("Gap formativo", "Incertezza legittima", "Punto di forza", "Pratica condivisa su terreno incerto").</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mb-10">
+        <h2 class="text-sm font-bold text-gray-400 uppercase tracking-wider mb-4">Quando</h2>
+        <p class="text-sm text-gray-700">Quando l'operatore clicca "Scarica Report BI" dalla dashboard.</p>
+      </div>
+
+    </section>
+
+    <!-- Separatore -->
+    <div class="border-t-4 border-emerald-200 my-16"></div>
+
+    <!-- ============================================================ -->
+    <!-- FLUSSO 3 - Export Risposte                                    -->
+    <!-- ============================================================ -->
+    <section id="flusso3" class="scroll-mt-24">
+
+      <div class="border-b border-gray-200 pb-6 mb-8">
+        <span class="text-xs font-bold text-emerald-600 uppercase tracking-wider">Flusso 3</span>
+        <h1 class="text-2xl font-extrabold tracking-tight mt-1">Export Risposte</h1>
+        <p class="text-gray-500 mt-1">Struttura e contenuto dei 2 fogli con il dettaglio delle risposte individuali.</p>
+      </div>
+
+      <div class="mb-10">
+        <h2 class="text-sm font-bold text-gray-400 uppercase tracking-wider mb-4">Struttura dei 2 fogli</h2>
+        <div class="border border-gray-200 rounded-lg divide-y divide-gray-200">
+          <div class="flex items-start gap-3 p-4">
+            <span class="w-6 h-6 rounded-full bg-gray-100 text-gray-600 font-bold text-xs flex items-center justify-center flex-shrink-0">1</span>
+            <div>
+              <p class="text-sm font-semibold text-gray-700">Riepilogo</p>
+              <p class="text-xs text-gray-400">Stesso contenuto del foglio Riepilogo del Report BI: titolo quiz, data, numero partecipanti, punteggi aggregati.</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-3 p-4">
+            <span class="w-6 h-6 rounded-full bg-gray-100 text-gray-600 font-bold text-xs flex items-center justify-center flex-shrink-0">2</span>
+            <div>
+              <p class="text-sm font-semibold text-gray-700">Risposte</p>
+              <p class="text-xs text-gray-400">Una riga per ogni risposta data. Colonne: identificativo del partecipante, profilo decisionale di appartenenza, numero domanda, tipo di domanda, testo della domanda, risposta data dal partecipante, se la risposta e corretta (Si / No / Non applicabile), risposta corretta, tempo impiegato in secondi.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mb-10">
+        <h2 class="text-sm font-bold text-gray-400 uppercase tracking-wider mb-4">Quando</h2>
+        <p class="text-sm text-gray-700">Quando l'operatore clicca "Scarica Risposte" dalla dashboard.</p>
+      </div>
+
+    </section>
+
+    <!-- Separatore -->
+    <div class="border-t-4 border-emerald-200 my-16"></div>
+
+    <!-- ============================================================ -->
+    <!-- CRITERI DI ACCETTAZIONE                                       -->
+    <!-- ============================================================ -->
+    <section class="mb-16">
+      <h2 class="text-xl font-extrabold mb-6">Criteri di accettazione</h2>
+      <ul class="space-y-3 text-[15px] text-gray-700 leading-relaxed">
+        <li>- Il Report BI ha 5 fogli con nomi di colonna comprensibili in italiano</li>
+        <li>- Nessun valore tecnico esposto (niente sigle statistiche o indici numerici senza contesto)</li>
+        <li>- Gli esiti sono testuali ("Gap formativo", non "gap" o un numero)</li>
+        <li>- Il foglio Profili e presente con dati completi su tutti i profili decisionali</li>
+        <li>- L'export Risposte include il profilo di appartenenza di ogni partecipante</li>
+        <li>- Entrambi i file si aprono correttamente in Excel e Google Sheets senza errori</li>
+      </ul>
+    </section>
+
+  </div>
+
+  <!-- ===== SCROLL SPY ===== -->
+  <script>
+    var sections = document.querySelectorAll('section[id]');
+    var navLinks = document.querySelectorAll('.nav-link');
+
+    function updateNav() {
+      var scrollY = window.scrollY + 120;
+      var current = 'panoramica';
+
+      sections.forEach(function(section) {
+        if (scrollY >= section.offsetTop) {
+          current = section.getAttribute('id');
+        }
+      });
+
+      navLinks.forEach(function(link) {
+        link.classList.remove('active');
+        if (link.getAttribute('data-section') === current) {
+          link.classList.add('active');
+        }
+      });
+    }
+
+    window.addEventListener('scroll', updateNav);
+    updateNav();
+  </script>
+
+</body>
+</html>

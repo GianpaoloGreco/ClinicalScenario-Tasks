@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task 015 - Report visuale interattivo</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+    body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
+    .nav-link { transition: all 0.2s; }
+    .nav-link.active { color: #047857; background: #ecfdf5; font-weight: 700; }
+  </style>
+</head>
+<body class="min-h-screen bg-white text-gray-900">
+
+  <!-- ===== BARRA NAVIGAZIONE STICKY ===== -->
+  <div class="sticky top-0 z-50 bg-white border-b-2 border-gray-200 shadow-sm">
+    <div class="max-w-5xl mx-auto flex">
+      <!-- Blocco TASK -->
+      <div class="flex-1 border-r-2 border-gray-200">
+        <div class="px-4 py-1.5 text-[10px] font-bold text-gray-400 uppercase tracking-widest bg-gray-50 border-b border-gray-100">Documentazione Task</div>
+        <div class="flex divide-x divide-gray-100">
+          <a href="#panoramica" class="nav-link flex-1 px-3 py-2.5 text-xs font-semibold text-gray-500 text-center hover:bg-gray-50" data-section="panoramica">Panoramica</a>
+          <a href="#flusso1" class="nav-link flex-1 px-3 py-2.5 text-xs font-semibold text-gray-500 text-center hover:bg-gray-50" data-section="flusso1">Flusso 1</a>
+          <a href="#flusso2" class="nav-link flex-1 px-3 py-2.5 text-xs font-semibold text-gray-500 text-center hover:bg-gray-50" data-section="flusso2">Flusso 2</a>
+          <a href="#flusso3" class="nav-link flex-1 px-3 py-2.5 text-xs font-semibold text-gray-500 text-center hover:bg-gray-50" data-section="flusso3">Flusso 3</a>
+          <a href="#flusso4" class="nav-link flex-1 px-3 py-2.5 text-xs font-semibold text-gray-500 text-center hover:bg-gray-50" data-section="flusso4">Flusso 4</a>
+        </div>
+      </div>
+      <!-- Blocco MOCKUP -->
+      <div class="w-56 flex-shrink-0 bg-emerald-500">
+        <div class="px-4 py-1.5 text-[10px] font-bold text-white uppercase tracking-widest border-b border-emerald-400">Mockup live</div>
+        <div class="flex divide-x divide-emerald-400">
+          <a href="http://localhost:3000/operator/bi?quizId=1f998924-5657-4c46-bc30-d5d38a7dc941" target="_blank" class="flex-1 px-3 py-2.5 text-xs font-bold text-white text-center hover:bg-emerald-600 transition-colors">Report live</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="max-w-3xl mx-auto px-6 py-12">
+
+    <!-- ============================================================ -->
+    <!-- PANORAMICA                                                    -->
+    <!-- ============================================================ -->
+    <section id="panoramica" class="scroll-mt-24">
+
+      <!-- Header -->
+      <div class="border-b border-gray-200 pb-8 mb-10">
+        <div class="flex items-center gap-2 flex-wrap">
+          <span class="px-2.5 py-1 rounded bg-emerald-100 text-emerald-700 text-xs font-bold">TASK 015</span>
+          <span class="px-2.5 py-1 rounded bg-red-100 text-red-700 text-xs font-bold">P1</span>
+          <span class="px-2.5 py-1 rounded bg-blue-100 text-blue-700 text-xs font-bold">Size L</span>
+          <span class="px-2.5 py-1 rounded bg-purple-100 text-purple-700 text-xs font-bold">Feature</span>
+        </div>
+        <h1 class="text-3xl font-extrabold tracking-tight mt-3 mb-1">Report visuale interattivo</h1>
+        <p class="text-gray-400 text-sm">Dipende da: Task 013, Task 014</p>
+      </div>
+
+      <!-- Descrizione -->
+      <div class="mb-12">
+        <h2 class="text-xl font-extrabold mb-4">Descrizione</h2>
+        <div class="text-[15px] text-gray-700 leading-relaxed space-y-4">
+          <p>I risultati dell'analisi devono essere presentati come un report visuale interattivo, consultabile a schermo ed esportabile come PDF. Il report ha due modalita di visualizzazione.</p>
+          <p>La <strong>Sintesi</strong> e pensata per chi ha poco tempo: 2 schermate con i punti chiave, la panoramica delle preferenze del gruppo e i principali gap di competenza.</p>
+          <p>L'<strong>Approfondita</strong> e per chi vuole esplorare i dati: 7 sezioni navigabili che coprono mappa delle preferenze, scatter plot, tabella di competenza, crosscut evidenza-comportamento, profili individuali dei partecipanti e appendice metodologica.</p>
+          <p>Il report deve essere immediatamente comprensibile da un direttore medico che non ha mai visto ClinicalScenario prima. Nessun termine tecnico, nessun codice interno - solo dati chiari e comunicazione accessibile.</p>
+        </div>
+      </div>
+
+      <!-- Obiettivo -->
+      <div class="mb-12">
+        <h2 class="text-xl font-extrabold mb-4">Obiettivo</h2>
+        <div class="bg-emerald-50 border border-emerald-200 rounded-lg p-5">
+          <p class="text-[15px] text-gray-800 leading-relaxed">L'operatore apre il report, sceglie tra Sintesi e Approfondita, naviga tra le sezioni, esplora i profili individuali dei partecipanti, e con un click esporta il tutto in PDF.</p>
+        </div>
+      </div>
+
+      <!-- Flusso utente (overview) -->
+      <div class="mb-12">
+        <h2 class="text-xl font-extrabold mb-4">Flusso utente</h2>
+        <p class="text-sm text-gray-500 mb-5">Questo e il percorso che fa l'operatore dall'apertura del report all'export. Clicca su ogni step per i dettagli.</p>
+        <div class="space-y-3">
+          <a href="#flusso1" class="block p-5 border-2 border-gray-200 rounded-lg hover:border-emerald-400 transition-all group">
+            <div class="flex items-center gap-4">
+              <div class="w-10 h-10 rounded-full bg-amber-100 text-amber-700 font-bold text-sm flex items-center justify-center flex-shrink-0">1</div>
+              <div class="flex-1">
+                <h3 class="text-base font-bold text-gray-800 group-hover:text-emerald-700">L'operatore apre il report</h3>
+                <p class="text-sm text-gray-500 mt-0.5">Sceglie tra la vista Sintesi (2 schermate) e la vista Approfondita (7 sezioni).</p>
+              </div>
+            </div>
+          </a>
+          <div class="flex justify-center"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-gray-300"><path d="m6 9 6 6 6-6"></path></svg></div>
+          <a href="#flusso2" class="block p-5 border-2 border-gray-200 rounded-lg hover:border-emerald-400 transition-all group">
+            <div class="flex items-center gap-4">
+              <div class="w-10 h-10 rounded-full bg-emerald-100 text-emerald-700 font-bold text-sm flex items-center justify-center flex-shrink-0">2</div>
+              <div class="flex-1">
+                <h3 class="text-base font-bold text-gray-800 group-hover:text-emerald-700">Naviga tra le sezioni</h3>
+                <p class="text-sm text-gray-500 mt-0.5">Usa la sidebar, le frecce avanti/indietro o la tastiera per muoversi tra le sezioni.</p>
+              </div>
+            </div>
+          </a>
+          <div class="flex justify-center"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-gray-300"><path d="m6 9 6 6 6-6"></path></svg></div>
+          <a href="#flusso3" class="block p-5 border-2 border-gray-200 rounded-lg hover:border-emerald-400 transition-all group">
+            <div class="flex items-center gap-4">
+              <div class="w-10 h-10 rounded-full bg-emerald-100 text-emerald-700 font-bold text-sm flex items-center justify-center flex-shrink-0">3</div>
+              <div class="flex-1">
+                <h3 class="text-base font-bold text-gray-800 group-hover:text-emerald-700">Esplora i profili individuali</h3>
+                <p class="text-sm text-gray-500 mt-0.5">Clicca su un partecipante per vedere il suo profilo dettagliato: posizione sugli assi, coerenza e risultati di competenza.</p>
+              </div>
+            </div>
+          </a>
+          <div class="flex justify-center"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-gray-300"><path d="m6 9 6 6 6-6"></path></svg></div>
+          <a href="#flusso4" class="block p-5 border-2 border-gray-200 rounded-lg hover:border-emerald-400 transition-all group">
+            <div class="flex items-center gap-4">
+              <div class="w-10 h-10 rounded-full bg-emerald-100 text-emerald-700 font-bold text-sm flex items-center justify-center flex-shrink-0">4</div>
+              <div class="flex-1">
+                <h3 class="text-base font-bold text-gray-800 group-hover:text-emerald-700">Esporta come PDF</h3>
+                <p class="text-sm text-gray-500 mt-0.5">Un click genera il PDF completo, pronto per la stampa in formato A4.</p>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <!-- Assumption -->
+      <div class="mb-12">
+        <h2 class="text-xl font-extrabold mb-4">Assumption</h2>
+        <ul class="space-y-3 text-[15px] text-gray-700 leading-relaxed">
+          <li>- Il report si alimenta da un unico punto di accesso che ritorna tutti i dati necessari in una volta sola.</li>
+          <li>- La Sintesi e pensata per chi ha poco tempo: i punti chiave in 2 schermate.</li>
+          <li>- L'Approfondita e per chi vuole esplorare i dati: 7 sezioni navigabili.</li>
+          <li>- L'export PDF usa la funzione di stampa del browser con stili dedicati per il formato A4.</li>
+          <li>- Il report e responsive: funziona su desktop e tablet (larghezza minima 680px).</li>
+          <li>- Tutti i testi seguono le regole di comunicazione del Task 013: nessun termine tecnico, etichette comprensibili, nessun codice interno.</li>
+        </ul>
+      </div>
+
+    </section>
+
+    <!-- Separatore tra sezioni -->
+    <div class="border-t-4 border-emerald-200 my-16"></div>
+
+    <!-- ============================================================ -->
+    <!-- FLUSSO 1 - Struttura della dashboard                          -->
+    <!-- ============================================================ -->
+    <section id="flusso1" class="scroll-mt-24">
+
+      <div class="border-b border-gray-200 pb-6 mb-8">
+        <span class="text-xs font-bold text-amber-600 uppercase tracking-wider">Flusso 1</span>
+        <h1 class="text-2xl font-extrabold tracking-tight mt-1">Struttura della dashboard</h1>
+        <p class="text-gray-500 mt-1">Lo scheletro del report con sidebar, modalita di visualizzazione e navigazione tra pagine.</p>
+      </div>
+
+      <div class="mb-10">
+        <h2 class="text-sm font-bold text-gray-400 uppercase tracking-wider mb-4">Cosa deve fare lo sviluppatore</h2>
+        <ul class="space-y-3 text-sm text-gray-700">
+          <li class="flex items-start gap-2">
+            <span class="text-emerald-500 font-bold mt-0.5">1.</span>
+            <span>Creare una <strong>dashboard con sidebar laterale</strong> che mostri l'elenco delle sezioni disponibili. La sidebar e sempre visibile su desktop.</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-emerald-500 font-bold mt-0.5">2.</span>
+            <span>Implementare il <strong>selettore di modalita</strong>: un toggle o due tab per passare tra Sintesi e Approfondita.</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-emerald-500 font-bold mt-0.5">3.</span>
+            <span>Navigazione tra sezioni tramite <strong>frecce avanti/indietro</strong> nella parte bassa dello schermo e clic sulla sidebar.</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="mb-10">
+        <h2 class="text-sm font-bold text-gray-400 uppercase tracking-wider mb-4">Quando</h2>
+        <p class="text-sm text-gray-700">Quando l'operatore seleziona un quiz dalla lista e apre il report associato.</p>
+      </div>
+
+    </section>
+
+    <!-- Separatore -->
+    <div class="border-t-4 border-emerald-200 my-16"></div>
+
+    <!-- ============================================================ -->
+    <!-- FLUSSO 2 - Le sezioni del report                              -->
+    <!-- ============================================================ -->
+    <section id="flusso2" class="scroll-mt-24">
+
+      <div class="border-b border-gray-200 pb-6 mb-8">
+        <span class="text-xs font-bold text-emerald-600 uppercase tracking-wider">Flusso 2</span>
+        <h1 class="text-2xl font-extrabold tracking-tight mt-1">Le sezioni del report</h1>
+        <p class="text-gray-500 mt-1">Contenuto e struttura di ogni schermata nella modalita Approfondita e Sintesi.</p>
+      </div>
+
+      <div class="mb-10">
+        <h2 class="text-sm font-bold text-gray-400 uppercase tracking-wider mb-4">7 sezioni della modalita Approfondita</h2>
+        <div class="border border-gray-200 rounded-lg divide-y divide-gray-200">
+          <div class="flex items-start gap-3 p-4">
+            <span class="w-6 h-6 rounded-full bg-gray-100 text-gray-600 font-bold text-xs flex items-center justify-center flex-shrink-0">1</span>
+            <div>
+              <p class="text-sm font-semibold text-gray-700">Guida alla lettura</p>
+              <p class="text-xs text-gray-400">Spiega come interpretare i grafici e le etichette del report. Per chi non conosce ClinicalScenario.</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-3 p-4">
+            <span class="w-6 h-6 rounded-full bg-gray-100 text-gray-600 font-bold text-xs flex items-center justify-center flex-shrink-0">2</span>
+            <div>
+              <p class="text-sm font-semibold text-gray-700">Intestazione e riepilogo</p>
+              <p class="text-xs text-gray-400">Dati del quiz, numero di partecipanti, punteggi aggregati di competenza e preferenza.</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-3 p-4">
+            <span class="w-6 h-6 rounded-full bg-gray-100 text-gray-600 font-bold text-xs flex items-center justify-center flex-shrink-0">3</span>
+            <div>
+              <p class="text-sm font-semibold text-gray-700">Mappa delle preferenze</p>
+              <p class="text-xs text-gray-400">Gauge per ogni asse di scelta + scatter plot che mostra la distribuzione dei partecipanti.</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-3 p-4">
+            <span class="w-6 h-6 rounded-full bg-gray-100 text-gray-600 font-bold text-xs flex items-center justify-center flex-shrink-0">4</span>
+            <div>
+              <p class="text-sm font-semibold text-gray-700">Tabella di competenza</p>
+              <p class="text-xs text-gray-400">Elenco delle domande con percentuale di risposte corrette e risposta sbagliata piu scelta.</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-3 p-4">
+            <span class="w-6 h-6 rounded-full bg-gray-100 text-gray-600 font-bold text-xs flex items-center justify-center flex-shrink-0">5</span>
+            <div>
+              <p class="text-sm font-semibold text-gray-700">Crosscut evidenza-comportamento</p>
+              <p class="text-xs text-gray-400">Quadrante che mostra dove il gruppo si trova rispetto all'evidenza: gap formativi vs. incertezza legittima.</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-3 p-4">
+            <span class="w-6 h-6 rounded-full bg-gray-100 text-gray-600 font-bold text-xs flex items-center justify-center flex-shrink-0">6</span>
+            <div>
+              <p class="text-sm font-semibold text-gray-700">Profili individuali</p>
+              <p class="text-xs text-gray-400">Lista dei partecipanti cliccabili. Click su un partecipante mostra il suo profilo dettagliato.</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-3 p-4">
+            <span class="w-6 h-6 rounded-full bg-gray-100 text-gray-600 font-bold text-xs flex items-center justify-center flex-shrink-0">7</span>
+            <div>
+              <p class="text-sm font-semibold text-gray-700">Appendice metodologica</p>
+              <p class="text-xs text-gray-400">Descrizione del metodo di analisi in linguaggio accessibile, senza formule o sigle tecniche.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mb-10">
+        <h2 class="text-sm font-bold text-gray-400 uppercase tracking-wider mb-4">Sintesi (modalita breve)</h2>
+        <p class="text-sm text-gray-700">Una schermata dedicata che combina i dati chiave di tutte le sezioni: il riepilogo del gruppo, i punti di forza e i gap principali, e una panoramica dei profili. Pensata per chi vuole capire tutto in 2 schermate.</p>
+      </div>
+
+      <div class="mb-10">
+        <h2 class="text-sm font-bold text-gray-400 uppercase tracking-wider mb-4">Quando</h2>
+        <p class="text-sm text-gray-700">Sempre visibile nella dashboard, in entrambe le modalita.</p>
+      </div>
+
+    </section>
+
+    <!-- Separatore -->
+    <div class="border-t-4 border-emerald-200 my-16"></div>
+
+    <!-- ============================================================ -->
+    <!-- FLUSSO 3 - Profilo individuale                                -->
+    <!-- ============================================================ -->
+    <section id="flusso3" class="scroll-mt-24">
+
+      <div class="border-b border-gray-200 pb-6 mb-8">
+        <span class="text-xs font-bold text-emerald-600 uppercase tracking-wider">Flusso 3</span>
+        <h1 class="text-2xl font-extrabold tracking-tight mt-1">Esplorazione profilo individuale</h1>
+        <p class="text-gray-500 mt-1">Come l'operatore vede il profilo di un singolo partecipante.</p>
+      </div>
+
+      <div class="mb-10">
+        <h2 class="text-sm font-bold text-gray-400 uppercase tracking-wider mb-4">Cosa deve fare lo sviluppatore</h2>
+        <ul class="space-y-3 text-sm text-gray-700">
+          <li class="flex items-start gap-2">
+            <span class="text-emerald-500 font-bold mt-0.5">1.</span>
+            <span>Nella sezione Profili, ogni partecipante e rappresentato da un elemento cliccabile (chip o riga).</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-emerald-500 font-bold mt-0.5">2.</span>
+            <span>Click su un partecipante apre un pannello o una vista dettagliata con: la sua posizione su tutti gli assi di preferenza, il suo indice di coerenza interna, e i suoi risultati di competenza per ogni domanda.</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-emerald-500 font-bold mt-0.5">3.</span>
+            <span>Il profilo individuale deve mostrare anche a quale gruppo decisionale appartiene il partecipante.</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="mb-10">
+        <h2 class="text-sm font-bold text-gray-400 uppercase tracking-wider mb-4">Quando</h2>
+        <p class="text-sm text-gray-700">Quando l'operatore si trova nella sezione Profili e clicca su un partecipante.</p>
+      </div>
+
+    </section>
+
+    <!-- Separatore -->
+    <div class="border-t-4 border-emerald-200 my-16"></div>
+
+    <!-- ============================================================ -->
+    <!-- FLUSSO 4 - Export PDF                                         -->
+    <!-- ============================================================ -->
+    <section id="flusso4" class="scroll-mt-24">
+
+      <div class="border-b border-gray-200 pb-6 mb-8">
+        <span class="text-xs font-bold text-emerald-600 uppercase tracking-wider">Flusso 4</span>
+        <h1 class="text-2xl font-extrabold tracking-tight mt-1">Export PDF</h1>
+        <p class="text-gray-500 mt-1">Come l'operatore genera il report in formato stampabile.</p>
+      </div>
+
+      <div class="mb-10">
+        <h2 class="text-sm font-bold text-gray-400 uppercase tracking-wider mb-4">Cosa deve fare lo sviluppatore</h2>
+        <ul class="space-y-3 text-sm text-gray-700">
+          <li class="flex items-start gap-2">
+            <span class="text-emerald-500 font-bold mt-0.5">1.</span>
+            <span>Un bottone "Esporta PDF" visibile nella dashboard avvia la stampa del report completo.</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-emerald-500 font-bold mt-0.5">2.</span>
+            <span>Il PDF usa stili di stampa dedicati: formato A4, interruzioni di pagina tra le sezioni, nessun elemento interattivo (sidebar, bottoni, frecce).</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-emerald-500 font-bold mt-0.5">3.</span>
+            <span>Il risultato deve essere leggibile e ben impaginato, adatto per essere condiviso o stampato fisicamente.</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="mb-10">
+        <h2 class="text-sm font-bold text-gray-400 uppercase tracking-wider mb-4">Quando</h2>
+        <p class="text-sm text-gray-700">Quando l'operatore clicca il bottone "Esporta PDF" in qualsiasi momento durante la consultazione del report.</p>
+      </div>
+
+    </section>
+
+    <!-- Separatore -->
+    <div class="border-t-4 border-emerald-200 my-16"></div>
+
+    <!-- ============================================================ -->
+    <!-- CRITERI DI ACCETTAZIONE                                       -->
+    <!-- ============================================================ -->
+    <section class="mb-16">
+      <h2 class="text-xl font-extrabold mb-6">Criteri di accettazione</h2>
+      <ul class="space-y-3 text-[15px] text-gray-700 leading-relaxed">
+        <li>- La dashboard si apre con dati reali</li>
+        <li>- La modalita Sintesi mostra 2 schermate leggibili con i punti chiave</li>
+        <li>- La modalita Approfondita mostra 7 sezioni navigabili</li>
+        <li>- Lo scatter plot ha i punti distribuiti nello spazio, non tutti in fila</li>
+        <li>- Il profilo individuale funziona: click su partecipante mostra i suoi dati</li>
+        <li>- L'export PDF produce un file A4 leggibile con interruzioni di pagina corrette</li>
+        <li>- Il report e consultabile su tablet (larghezza minima 680px)</li>
+        <li>- Tutti i testi seguono le regole di comunicazione del Task 013</li>
+      </ul>
+    </section>
+
+  </div>
+
+  <!-- ===== SCROLL SPY ===== -->
+  <script>
+    var sections = document.querySelectorAll('section[id]');
+    var navLinks = document.querySelectorAll('.nav-link');
+
+    function updateNav() {
+      var scrollY = window.scrollY + 120;
+      var current = 'panoramica';
+
+      sections.forEach(function(section) {
+        if (scrollY >= section.offsetTop) {
+          current = section.getAttribute('id');
+        }
+      });
+
+      navLinks.forEach(function(link) {
+        link.classList.remove('active');
+        if (link.getAttribute('data-section') === current) {
+          link.classList.add('active');
+        }
+      });
+    }
+
+    window.addEventListener('scroll', updateNav);
+    updateNav();
+  </script>
+
+</body>
+</html>
